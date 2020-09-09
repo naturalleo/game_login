@@ -4,3 +4,6 @@ log
 resource.pdb
 AuthServer.pdb
 lib
+*.tlog
+*.lib
+*.obj
