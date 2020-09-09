@@ -131,9 +131,9 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 
 IDR_MAIN_MENU MENU
 BEGIN
-    POPUP "LoginMode"
+    POPUP "console"
     BEGIN
-        MENUITEM "test",                        ID_LOGINMODE_TEST
+        MENUITEM "test1",                       ID_LOGINMODE_TEST
     END
 END
 

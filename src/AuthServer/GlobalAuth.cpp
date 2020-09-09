@@ -173,6 +173,7 @@ _BEFORE
 
 	case WM_COMMAND:
 		{
+		if (hwnd == mainWnd) {
 			int notification = HIWORD(wParam);
 			int buttonId = LOWORD(wParam);
 			switch (notification) {
@@ -183,8 +184,11 @@ _BEFORE
 				else if (buttonId == LOGLEVEL_BUTTON_ID) {
 					OnChangeLoggingLevel();
 				}
+				else if(buttonId == ID_LOGINMODE_TEST)
+
 				break;
 			}
+		}
 		}
 		break;
 	case WM_KEYDOWN:
@@ -276,11 +280,11 @@ exception_init();
 	ShowWindow(reporterWnd, SW_SHOW);
 	UpdateWindow(reporterWnd);
 
-	ShowWindow(reloadServerButtonWnd, SW_SHOW);
-	UpdateWindow(reloadServerButtonWnd);
+	//ShowWindow(reloadServerButtonWnd, SW_SHOW);
+	//UpdateWindow(reloadServerButtonWnd);
 
-	ShowWindow(verboseLoggingButtonWnd, SW_SHOW);
-	UpdateWindow(verboseLoggingButtonWnd);
+	//ShowWindow(verboseLoggingButtonWnd, SW_SHOW);
+	//UpdateWindow(verboseLoggingButtonWnd);
 
 // Start Init
 	DesKeyInit("TEST");
