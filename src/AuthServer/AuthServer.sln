@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28306.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AuthServer", "AuthServer.vcxproj", "{9E1C935D-FDA7-45B8-9229-5420D79B8592}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "arda2", "..\..\lib\arda2\arda2.vcxproj", "{3097725F-C244-4F81-A69F-CC0FA4B5F91C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cryptLib", "..\..\lib\cryptLib\cryptLib.vcxproj", "{15A16D8B-3845-40A9-B5D6-16CF665A8A5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		DebugMTDLL|Win32 = DebugMTDLL|Win32
+		Release|Win32 = Release|Win32
+		ReleaseMTDLL|Win32 = ReleaseMTDLL|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E1C935D-FDA7-45B8-9229-5420D79B8592}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9E1C935D-FDA7-45B8-9229-5420D79B8592}.Debug|Win32.Build.0 = Debug|Win32
+		{9E1C935D-FDA7-45B8-9229-5420D79B8592}.DebugMTDLL|Win32.ActiveCfg = Debug|Win32
+		{9E1C935D-FDA7-45B8-9229-5420D79B8592}.DebugMTDLL|Win32.Build.0 = Debug|Win32
+		{9E1C935D-FDA7-45B8-9229-5420D79B8592}.Release|Win32.ActiveCfg = Release|Win32
+		{9E1C935D-FDA7-45B8-9229-5420D79B8592}.Release|Win32.Build.0 = Release|Win32
+		{9E1C935D-FDA7-45B8-9229-5420D79B8592}.ReleaseMTDLL|Win32.ActiveCfg = Release|Win32
+		{9E1C935D-FDA7-45B8-9229-5420D79B8592}.ReleaseMTDLL|Win32.Build.0 = Release|Win32
+		{3097725F-C244-4F81-A69F-CC0FA4B5F91C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3097725F-C244-4F81-A69F-CC0FA4B5F91C}.Debug|Win32.Build.0 = Debug|Win32
+		{3097725F-C244-4F81-A69F-CC0FA4B5F91C}.DebugMTDLL|Win32.ActiveCfg = DebugMTDLL|Win32
+		{3097725F-C244-4F81-A69F-CC0FA4B5F91C}.DebugMTDLL|Win32.Build.0 = DebugMTDLL|Win32
+		{3097725F-C244-4F81-A69F-CC0FA4B5F91C}.Release|Win32.ActiveCfg = Release|Win32
+		{3097725F-C244-4F81-A69F-CC0FA4B5F91C}.Release|Win32.Build.0 = Release|Win32
+		{3097725F-C244-4F81-A69F-CC0FA4B5F91C}.ReleaseMTDLL|Win32.ActiveCfg = ReleaseMTDLL|Win32
+		{3097725F-C244-4F81-A69F-CC0FA4B5F91C}.ReleaseMTDLL|Win32.Build.0 = ReleaseMTDLL|Win32
+		{15A16D8B-3845-40A9-B5D6-16CF665A8A5E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{15A16D8B-3845-40A9-B5D6-16CF665A8A5E}.Debug|Win32.Build.0 = Debug|Win32
+		{15A16D8B-3845-40A9-B5D6-16CF665A8A5E}.DebugMTDLL|Win32.ActiveCfg = DebugMTDLL|Win32
+		{15A16D8B-3845-40A9-B5D6-16CF665A8A5E}.DebugMTDLL|Win32.Build.0 = DebugMTDLL|Win32
+		{15A16D8B-3845-40A9-B5D6-16CF665A8A5E}.Release|Win32.ActiveCfg = Release|Win32
+		{15A16D8B-3845-40A9-B5D6-16CF665A8A5E}.Release|Win32.Build.0 = Release|Win32
+		{15A16D8B-3845-40A9-B5D6-16CF665A8A5E}.ReleaseMTDLL|Win32.ActiveCfg = ReleaseMTDLL|Win32
+		{15A16D8B-3845-40A9-B5D6-16CF665A8A5E}.ReleaseMTDLL|Win32.Build.0 = ReleaseMTDLL|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E085828-FC1D-4B6F-8D62-0E7CAC542018}
+	EndGlobalSection
+EndGlobal

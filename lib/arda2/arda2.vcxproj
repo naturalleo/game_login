@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DebugMTDLL|Win32">
+      <Configuration>DebugMTDLL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseMTDLL|Win32">
+      <Configuration>ReleaseMTDLL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3097725F-C244-4F81-A69F-CC0FA4B5F91C}</ProjectGuid>
+    <RootNamespace>arda2</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugMTDLL|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseMTDLL|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugMTDLL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseMTDLL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.28127.55</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(Platform)_vc7\</OutDir>
+    <IntDir>$(Platform)_$(Configuration)_vc7\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(Platform)_vc7\</OutDir>
+    <IntDir>$(Platform)_$(Configuration)_vc7\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseMTDLL|Win32'">
+    <OutDir>$(Platform)_vc7\</OutDir>
+    <IntDir>$(Platform)_$(Configuration)_vc7\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugMTDLL|Win32'">
+    <OutDir>$(Platform)_vc7\</OutDir>
+    <IntDir>$(Platform)_$(Configuration)_vc7\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..;../external/zlib;../external/bzip2/include;../external/openssl/include/win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;BUILD_UNIT_TESTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>UninitializedLocalUsageCheck</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader />
+      <PrecompiledHeaderFile />
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName)d.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <OmitFramePointers>true</OmitFramePointers>
+      <AdditionalIncludeDirectories>..;../external/zlib;../external/bzip2/include;../external/openssl/include/win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;BUILD_UNIT_TESTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <PrecompiledHeader />
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseMTDLL|Win32'">
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <OmitFramePointers>true</OmitFramePointers>
+      <AdditionalIncludeDirectories>..;../external/zlib;../external/bzip2/include;../external/openssl/include/win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;BUILD_UNIT_TESTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <PrecompiledHeader />
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName)MTDLL.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugMTDLL|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..;../external/zlib;../external/bzip2/include;../external/openssl/include/win32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;BUILD_UNIT_TESTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>UninitializedLocalUsageCheck</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader />
+      <PrecompiledHeaderFile />
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName)MTDLLd.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="core\corArgFormatter.h" />
+    <ClInclude Include="core\corAssert.h" />
+    <ClInclude Include="core\corCast.h" />
+    <ClInclude Include="core\corCompilerAssert.h" />
+    <ClInclude Include="core\corDbgBreak.h" />
+    <ClInclude Include="core\corError.h" />
+    <ClInclude Include="core\corErrorHandler.h" />
+    <ClInclude Include="core\corErrorTypes.h" />
+    <ClInclude Include="core\corFirst.h" />
+    <ClInclude Include="core\corHashStringCompare.h" />
+    <ClInclude Include="core\corPlatform.h" />
+    <ClInclude Include="core\corPlatformMacros.h" />
+    <ClInclude Include="core\corStdPost_P.h" />
+    <ClInclude Include="core\corStdPre_P.h" />
+    <ClInclude Include="core\corStdString.h" />
+    <ClInclude Include="core\corStlAlgorithm.h" />
+    <ClInclude Include="core\corStlDeque.h" />
+    <ClInclude Include="core\corStlFunctional.h" />
+    <ClInclude Include="core\corStlHashFunc.h" />
+    <ClInclude Include="core\corStlHashmap.h" />
+    <ClInclude Include="core\corStlHashSet.h" />
+    <ClInclude Include="core\corStlHashTraits.h" />
+    <ClInclude Include="core\corStlList.h" />
+    <ClInclude Include="core\corStlMap.h" />
+    <ClInclude Include="core\corStlQueue.h" />
+    <ClInclude Include="core\corStlSet.h" />
+    <ClInclude Include="core\corStlStack.h" />
+    <ClInclude Include="core\corStlUtility.h" />
+    <ClInclude Include="core\corStlVector.h" />
+    <ClInclude Include="core\corTypes.h" />
+    <ClInclude Include="core\corWindows.h" />
+    <ClInclude Include="error\errErrorHandlerDialog.h" />
+    <ClInclude Include="error\errErrorHandlerLogger.h" />
+    <ClInclude Include="math\matAdapters.h" />
+    <ClInclude Include="math\matColor.h" />
+    <ClInclude Include="math\matColorConvert.h" />
+    <ClInclude Include="math\matColorInt.h" />
+    <ClInclude Include="math\matConstants.h" />
+    <ClInclude Include="math\matD3DXMathEmu.h" />
+    <ClInclude Include="math\matDistance.h" />
+    <ClInclude Include="math\matFarPlane.h" />
+    <ClInclude Include="math\matFarPosition.h" />
+    <ClInclude Include="math\matFarTransform.h" />
+    <ClInclude Include="math\matFirst.h" />
+    <ClInclude Include="math\matIntersect.h" />
+    <ClInclude Include="math\matIntVector2.h" />
+    <ClInclude Include="math\matIntVector3.h" />
+    <ClInclude Include="math\matIntVector4.h" />
+    <ClInclude Include="math\matMatrix4x3T.h" />
+    <ClInclude Include="math\matMatrix4x4.h" />
+    <ClInclude Include="math\matMatrix4x4T.h" />
+    <ClInclude Include="math\matPlane.h" />
+    <ClInclude Include="math\matProperty.h" />
+    <ClInclude Include="math\matQuaternion.h" />
+    <ClInclude Include="math\matRandom.h" />
+    <ClInclude Include="math\matSerialization.h" />
+    <ClInclude Include="math\matSubspace.h" />
+    <ClInclude Include="math\matTransform.h" />
+    <ClInclude Include="math\matTypes.h" />
+    <ClInclude Include="math\matUtils.h" />
+    <ClInclude Include="math\matVector2.h" />
+    <ClInclude Include="math\matVector3.h" />
+    <ClInclude Include="math\matVector4.h" />
+    <ClInclude Include="memory\memExplicitHeap.h" />
+    <ClInclude Include="memory\memMemory.h" />
+    <ClInclude Include="memory\memMemoryDbg.h" />
+    <ClInclude Include="perf\prfCounter.h" />
+    <ClInclude Include="perf\prfMonitor.h" />
+    <ClInclude Include="perf\prfSizer.h" />
+    <ClInclude Include="properties\proAdapter.h" />
+    <ClInclude Include="properties\proChildSort.h" />
+    <ClInclude Include="properties\proClass.h" />
+    <ClInclude Include="properties\proClassAdapter.h" />
+    <ClInclude Include="properties\proClassNative.h" />
+    <ClInclude Include="properties\proClassOwner.h" />
+    <ClInclude Include="properties\proClassRegistry.h" />
+    <ClInclude Include="properties\proFirst.h" />
+    <ClInclude Include="properties\proObject.h" />
+    <ClInclude Include="properties\proObjectImpl.h" />
+    <ClInclude Include="properties\proObjectReader.h" />
+    <ClInclude Include="properties\proObjectReaderXML.h" />
+    <ClInclude Include="properties\proObjectWriter.h" />
+    <ClInclude Include="properties\proObjectWriterXML.h" />
+    <ClInclude Include="properties\proObserver.h" />
+    <ClInclude Include="properties\proObserverTree.h" />
+    <ClInclude Include="properties\proProperty.h" />
+    <ClInclude Include="properties\proPropertyDelegate.h" />
+    <ClInclude Include="properties\proPropertyFunction.h" />
+    <ClInclude Include="properties\proPropertyNative.h" />
+    <ClInclude Include="properties\proPropertyOwner.h" />
+    <ClInclude Include="properties\proStream.h" />
+    <ClInclude Include="properties\proStringUtils.h" />
+    <ClInclude Include="properties\proUndoCmds.h" />
+    <ClInclude Include="properties\proUndoList.h" />
+    <ClInclude Include="properties\proValidator.h" />
+    <ClInclude Include="properties\proXmlParser.h" />
+    <ClInclude Include="storage\stoAbstractUnserializationFactory.h" />
+    <ClInclude Include="storage\stoChunk.h" />
+    <ClInclude Include="storage\stoCompressor.h" />
+    <ClInclude Include="storage\stoConfigFile.h" />
+    <ClInclude Include="storage\stoFile.h" />
+    <ClInclude Include="storage\stoFileBuffer.h" />
+    <ClInclude Include="storage\stoFileCryptFile.h" />
+    <ClInclude Include="storage\stoFileMemory.h" />
+    <ClInclude Include="storage\stoFileMemoryMap.h" />
+    <ClInclude Include="storage\stoFileOSFile.h" />
+    <ClInclude Include="storage\stoFileUtils.h" />
+    <ClInclude Include="storage\stoFileView.h" />
+    <ClInclude Include="storage\stoFindFile.h" />
+    <ClInclude Include="storage\stoFirst.h" />
+    <ClInclude Include="storage\stoObjectChunk.h" />
+    <ClInclude Include="storage\stoObjectReaderChunk.h" />
+    <ClInclude Include="storage\stoObjectWriterChunk.h" />
+    <ClInclude Include="storage\stoPackOSFile.h" />
+    <ClInclude Include="storage\stoProperty.h" />
+    <ClInclude Include="storage\stoPropertyStream.h" />
+    <ClInclude Include="storage\stoSafeList.h" />
+    <ClInclude Include="storage\stoSerialization.h" />
+    <ClInclude Include="test\tstFramework.h" />
+    <ClInclude Include="test\tstUnit.h" />
+    <ClInclude Include="thread\thrCritical.h" />
+    <ClInclude Include="thread\thrKernelEvent.h" />
+    <ClInclude Include="thread\thrKernelMutex.h" />
+    <ClInclude Include="thread\thrKernelObject.h" />
+    <ClInclude Include="thread\thrThread.h" />
+    <ClInclude Include="timer\timIntervalTimer.h" />
+    <ClInclude Include="timer\timSystemTime.h" />
+    <ClInclude Include="timer\timTimer.h" />
+    <ClInclude Include="util\utlBitArray.h" />
+    <ClInclude Include="util\utlBitFlag.h" />
+    <ClInclude Include="util\utlBlockAllocator.h" />
+    <ClInclude Include="util\utlCallback.h" />
+    <ClInclude Include="util\utlCmdLineParser.h" />
+    <ClInclude Include="util\utlEnumOperators.h" />
+    <ClInclude Include="util\utlGenericHash.h" />
+    <ClInclude Include="util\utlModule.h" />
+    <ClInclude Include="util\utlPair.h" />
+    <ClInclude Include="util\utlPoint.h" />
+    <ClInclude Include="util\utlProperty.h" />
+    <ClInclude Include="util\utlRect.h" />
+    <ClInclude Include="util\utlRefCount.h" />
+    <ClInclude Include="util\utlRefHandle.h" />
+    <ClInclude Include="util\utlRefSmartPtr.h" />
+    <ClInclude Include="util\utlRegistry.h" />
+    <ClInclude Include="util\utlResourceHeap.h" />
+    <ClInclude Include="util\utlSafeTypeInfo.h" />
+    <ClInclude Include="util\utlSingleton.h" />
+    <ClInclude Include="util\utlSize.h" />
+    <ClInclude Include="util\utlStackDbg.h" />
+    <ClInclude Include="util\utlStringHeap.h" />
+    <ClInclude Include="util\utlStringTable.h" />
+    <ClInclude Include="util\utlTokenizer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="core\corArgFormatter.cpp" />
+    <ClCompile Include="core\corError.cpp" />
+    <ClCompile Include="core\corErrorHandler.cpp" />
+    <ClCompile Include="core\corStlHashFunc.cpp" />
+    <ClCompile Include="core\corWindows.cpp" />
+    <ClCompile Include="error\errErrorHandlerDialog.cpp" />
+    <ClCompile Include="error\errErrorHandlerLogger.cpp" />
+    <ClCompile Include="math\matAdapters.cpp" />
+    <ClCompile Include="math\matColor.cpp" />
+    <ClCompile Include="math\matColorConvert.cpp" />
+    <ClCompile Include="math\matColorInt.cpp" />
+    <ClCompile Include="math\matConstants.cpp" />
+    <ClCompile Include="math\matD3DXMathEmu.cpp" />
+    <ClCompile Include="math\matDistance.cpp" />
+    <ClCompile Include="math\matFarPlane.cpp" />
+    <ClCompile Include="math\matFarPosition.cpp" />
+    <ClCompile Include="math\matFarTransform.cpp" />
+    <ClCompile Include="math\matIntersect.cpp" />
+    <ClCompile Include="math\matIntVector3.cpp" />
+    <ClCompile Include="math\matIntVector4.cpp" />
+    <ClCompile Include="math\matMatrix4x3T.cpp" />
+    <ClCompile Include="math\matMatrix4x4.cpp" />
+    <ClCompile Include="math\matPlane.cpp" />
+    <ClCompile Include="math\matProperty.cpp" />
+    <ClCompile Include="math\matQuaternion.cpp" />
+    <ClCompile Include="math\matRandom.cpp" />
+    <ClCompile Include="math\matTransform.cpp" />
+    <ClCompile Include="math\matUtils.cpp" />
+    <ClCompile Include="math\matVector3.cpp" />
+    <ClCompile Include="math\matVector4.cpp" />
+    <ClCompile Include="memory\memExplicitHeap.cpp" />
+    <ClCompile Include="memory\memMemory.cpp" />
+    <ClCompile Include="memory\memMemoryDbg.cpp" />
+    <ClCompile Include="perf\prfCounter.cpp" />
+    <ClCompile Include="perf\prfMonitor.cpp" />
+    <ClCompile Include="perf\prfSizer.cpp" />
+    <ClCompile Include="properties\proAdapter.cpp" />
+    <ClCompile Include="properties\proChildSort.cpp" />
+    <ClCompile Include="properties\proClass.cpp" />
+    <ClCompile Include="properties\proClassAdapter.cpp" />
+    <ClCompile Include="properties\proClassNative.cpp" />
+    <ClCompile Include="properties\proClassOwner.cpp" />
+    <ClCompile Include="properties\proClassRegistry.cpp" />
+    <ClCompile Include="properties\proFirst.cpp" />
+    <ClCompile Include="properties\proObject.cpp" />
+    <ClCompile Include="properties\proObjectImpl.cpp" />
+    <ClCompile Include="properties\proObjectReader.cpp" />
+    <ClCompile Include="properties\proObjectReaderXML.cpp" />
+    <ClCompile Include="properties\proObjectWriter.cpp" />
+    <ClCompile Include="properties\proObjectWriterXML.cpp" />
+    <ClCompile Include="properties\proObserver.cpp" />
+    <ClCompile Include="properties\proObserverTree.cpp" />
+    <ClCompile Include="properties\proProperty.cpp" />
+    <ClCompile Include="properties\proPropertyFunction.cpp" />
+    <ClCompile Include="properties\proPropertyNative.cpp" />
+    <ClCompile Include="properties\proPropertyOwner.cpp" />
+    <ClCompile Include="properties\proStringUtils.cpp" />
+    <ClCompile Include="properties\proUndoCmds.cpp" />
+    <ClCompile Include="properties\proUndoList.cpp" />
+    <ClCompile Include="properties\proValidator.cpp" />
+    <ClCompile Include="properties\proXmlParser.cpp" />
+    <ClCompile Include="storage\stoChunk.cpp" />
+    <ClCompile Include="storage\stoCompressor.cpp" />
+    <ClCompile Include="storage\stoConfigFile.cpp" />
+    <ClCompile Include="storage\stoFile.cpp" />
+    <ClCompile Include="storage\stoFileCryptFile.cpp" />
+    <ClCompile Include="storage\stoFileMemory.cpp" />
+    <ClCompile Include="storage\stoFileMemoryMap.cpp" />
+    <ClCompile Include="storage\stoFileOSFile.cpp" />
+    <ClCompile Include="storage\stoFileUtils.cpp" />
+    <ClCompile Include="storage\stoObjectReaderChunk.cpp" />
+    <ClCompile Include="storage\stoObjectWriterChunk.cpp" />
+    <ClCompile Include="storage\stoPackOSFile.cpp" />
+    <ClCompile Include="storage\stoProperty.cpp" />
+    <ClCompile Include="storage\stoPropertyStream.cpp" />
+    <ClCompile Include="test\tstFramework.cpp" />
+    <ClCompile Include="test\tstUnit.cpp" />
+    <ClCompile Include="thread\thrKernelEvent.cpp" />
+    <ClCompile Include="thread\thrThread.cpp" />
+    <ClCompile Include="timer\timSystemTime.cpp" />
+    <ClCompile Include="timer\timTimer.cpp" />
+    <ClCompile Include="util\utlBitArray.cpp" />
+    <ClCompile Include="util\utlCmdLineParser.cpp" />
+    <ClCompile Include="util\utlGenericHash.cpp" />
+    <ClCompile Include="util\utlModule.cpp" />
+    <ClCompile Include="util\utlPoint.cpp" />
+    <ClCompile Include="util\utlProperty.cpp" />
+    <ClCompile Include="util\utlRect.cpp" />
+    <ClCompile Include="util\utlRegistry.cpp" />
+    <ClCompile Include="util\utlSize.cpp" />
+    <ClCompile Include="util\utlStackDbg.cpp" />
+    <ClCompile Include="util\utlStringHeap.cpp" />
+    <ClCompile Include="util\utlStringTable.cpp" />
+    <ClCompile Include="util\utlTokenizer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="test\todo.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

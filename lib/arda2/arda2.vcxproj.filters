@@ -1,0 +1,847 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="core">
+      <UniqueIdentifier>{7d1f0a29-00ed-44cc-934b-6549dbf00335}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\header files">
+      <UniqueIdentifier>{c015e306-d223-4b5b-830c-a8fce9073b20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\source files">
+      <UniqueIdentifier>{1de74089-fb59-44a1-a543-9dec7681dd8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{f38f8da4-83ca-46d1-b7c3-a45a80036864}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util\header files">
+      <UniqueIdentifier>{24ce50c1-661e-410b-9dda-ac312a15406c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util\source files">
+      <UniqueIdentifier>{1e4670e4-ffe6-4cbd-95f4-b6c10973a7ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util\source files\memory">
+      <UniqueIdentifier>{526eb19a-f7df-4bff-a7d9-26c79f8c5f36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util\source files\memory\header files">
+      <UniqueIdentifier>{75fa4dd0-3a19-48b6-832b-98a8c6f98114}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util\source files\memory\source files">
+      <UniqueIdentifier>{e7bd7555-b924-4a21-8a4c-386a481135e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="perf">
+      <UniqueIdentifier>{b42e193e-4b8d-4c81-a9d1-198e222273f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="perf\header files">
+      <UniqueIdentifier>{19352912-8b6d-4eda-b2bf-d2f6268dcf25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="perf\source files">
+      <UniqueIdentifier>{dd101e79-54b8-4b4c-969d-ae72f5505a94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="timer">
+      <UniqueIdentifier>{58d06ea9-649b-4590-a0cd-984145210873}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="timer\header files">
+      <UniqueIdentifier>{87dcaae6-5682-4975-a880-12ff338fc700}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="timer\source files">
+      <UniqueIdentifier>{f5f48189-d192-4764-ad82-d01c8948c96b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thread">
+      <UniqueIdentifier>{d6246a8b-a34f-4e73-8db8-f24e9c840ebe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thread\header files">
+      <UniqueIdentifier>{f647e4b2-cbd7-442d-8b09-b8bdee233f47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thread\source files">
+      <UniqueIdentifier>{1cb71c7b-56fe-42cd-8302-2d6afb1ecd4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="error">
+      <UniqueIdentifier>{e5933629-b8d7-48cf-afa3-998fa3533441}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="error\header files">
+      <UniqueIdentifier>{916ccac8-abf8-465a-8136-b97d1a1d2586}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="error\source files">
+      <UniqueIdentifier>{05358ffe-8f4d-4466-95b7-f78eff940676}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="storage">
+      <UniqueIdentifier>{0a56cacb-506a-402d-8c55-66b908c9764e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="storage\header files">
+      <UniqueIdentifier>{1f28545f-6658-4437-8aca-5f8cded9bf13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="storage\source files">
+      <UniqueIdentifier>{dd50bf94-dd96-4a91-8daa-3ac338f43f94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{a1dcb644-bd8b-493f-871a-3d75253cfc83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math\header files">
+      <UniqueIdentifier>{6a5e1e00-53ff-47b7-b76a-88f1e7501b38}</UniqueIdentifier>
+      <Extensions>*.h</Extensions>
+    </Filter>
+    <Filter Include="math\source files">
+      <UniqueIdentifier>{67fda3e8-c03d-4c77-910b-23562a449034}</UniqueIdentifier>
+      <Extensions>*.cpp</Extensions>
+    </Filter>
+    <Filter Include="properties">
+      <UniqueIdentifier>{d94bd3bd-d38a-4a5d-abe3-b93d3fd962be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="properties\source files">
+      <UniqueIdentifier>{97182595-48e6-44e2-97e6-724ea935783e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="properties\header files">
+      <UniqueIdentifier>{0c21d735-cd74-4f5d-9192-5341bbebc125}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test">
+      <UniqueIdentifier>{a5c44359-a4e8-4d8b-956d-bfe9730c18cc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="core\corArgFormatter.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corAssert.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corCast.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corCompilerAssert.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corDbgBreak.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corError.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corErrorHandler.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corErrorTypes.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corFirst.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corHashStringCompare.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corPlatform.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corPlatformMacros.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corStdPost_P.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corStdPre_P.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corStdString.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corStlAlgorithm.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corStlDeque.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corStlFunctional.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corStlHashFunc.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corStlHashmap.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corStlHashSet.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corStlHashTraits.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corStlList.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corStlMap.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corStlQueue.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corStlSet.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corStlStack.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corStlUtility.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corStlVector.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corTypes.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\corWindows.h">
+      <Filter>core\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlBitArray.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlBitFlag.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlBlockAllocator.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlCallback.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlCmdLineParser.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlEnumOperators.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlGenericHash.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlModule.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlPair.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlPoint.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlProperty.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlRect.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlRefCount.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlRefHandle.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlRefSmartPtr.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlRegistry.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlResourceHeap.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlSafeTypeInfo.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlSingleton.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlSize.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlStackDbg.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlStringHeap.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlStringTable.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="util\utlTokenizer.h">
+      <Filter>util\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="memory\memExplicitHeap.h">
+      <Filter>util\source files\memory\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="memory\memMemory.h">
+      <Filter>util\source files\memory\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="memory\memMemoryDbg.h">
+      <Filter>util\source files\memory\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="perf\prfCounter.h">
+      <Filter>perf\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="perf\prfMonitor.h">
+      <Filter>perf\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="perf\prfSizer.h">
+      <Filter>perf\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="timer\timIntervalTimer.h">
+      <Filter>timer\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="timer\timSystemTime.h">
+      <Filter>timer\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="timer\timTimer.h">
+      <Filter>timer\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\thrCritical.h">
+      <Filter>thread\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\thrKernelEvent.h">
+      <Filter>thread\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\thrKernelMutex.h">
+      <Filter>thread\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\thrKernelObject.h">
+      <Filter>thread\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="thread\thrThread.h">
+      <Filter>thread\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="error\errErrorHandlerDialog.h">
+      <Filter>error\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="error\errErrorHandlerLogger.h">
+      <Filter>error\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoAbstractUnserializationFactory.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoChunk.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoCompressor.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoConfigFile.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoFile.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoFileBuffer.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoFileCryptFile.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoFileMemory.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoFileMemoryMap.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoFileOSFile.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoFileUtils.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoFileView.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoFindFile.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoFirst.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoObjectChunk.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoObjectReaderChunk.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoObjectWriterChunk.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoPackOSFile.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoProperty.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoPropertyStream.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoSafeList.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="storage\stoSerialization.h">
+      <Filter>storage\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matAdapters.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matColor.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matColorConvert.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matColorInt.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matConstants.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matD3DXMathEmu.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matDistance.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matFarPlane.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matFarPosition.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matFarTransform.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matFirst.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matIntersect.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matIntVector2.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matIntVector3.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matIntVector4.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matMatrix4x3T.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matMatrix4x4.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matMatrix4x4T.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matPlane.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matProperty.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matQuaternion.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matRandom.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matSerialization.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matSubspace.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matTransform.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matTypes.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matUtils.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matVector2.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matVector3.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="math\matVector4.h">
+      <Filter>math\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proAdapter.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proChildSort.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proClass.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proClassAdapter.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proClassNative.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proClassOwner.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proClassRegistry.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proFirst.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proObject.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proObjectImpl.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proObjectReader.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proObjectReaderXML.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proObjectWriter.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proObjectWriterXML.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proObserver.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proObserverTree.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proProperty.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proPropertyDelegate.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proPropertyFunction.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proPropertyNative.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proPropertyOwner.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proStream.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proStringUtils.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proUndoCmds.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proUndoList.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proValidator.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="properties\proXmlParser.h">
+      <Filter>properties\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="test\tstFramework.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="test\tstUnit.h">
+      <Filter>test</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="core\corArgFormatter.cpp">
+      <Filter>core\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\corError.cpp">
+      <Filter>core\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\corErrorHandler.cpp">
+      <Filter>core\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\corStlHashFunc.cpp">
+      <Filter>core\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\corWindows.cpp">
+      <Filter>core\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="util\utlBitArray.cpp">
+      <Filter>util\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="util\utlCmdLineParser.cpp">
+      <Filter>util\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="util\utlGenericHash.cpp">
+      <Filter>util\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="util\utlModule.cpp">
+      <Filter>util\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="util\utlPoint.cpp">
+      <Filter>util\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="util\utlProperty.cpp">
+      <Filter>util\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="util\utlRect.cpp">
+      <Filter>util\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="util\utlRegistry.cpp">
+      <Filter>util\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="util\utlSize.cpp">
+      <Filter>util\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="util\utlStackDbg.cpp">
+      <Filter>util\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="util\utlStringHeap.cpp">
+      <Filter>util\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="util\utlStringTable.cpp">
+      <Filter>util\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="util\utlTokenizer.cpp">
+      <Filter>util\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="memory\memExplicitHeap.cpp">
+      <Filter>util\source files\memory\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="memory\memMemory.cpp">
+      <Filter>util\source files\memory\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="memory\memMemoryDbg.cpp">
+      <Filter>util\source files\memory\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="perf\prfCounter.cpp">
+      <Filter>perf\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="perf\prfMonitor.cpp">
+      <Filter>perf\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="perf\prfSizer.cpp">
+      <Filter>perf\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="timer\timSystemTime.cpp">
+      <Filter>timer\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="timer\timTimer.cpp">
+      <Filter>timer\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="thread\thrKernelEvent.cpp">
+      <Filter>thread\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="thread\thrThread.cpp">
+      <Filter>thread\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="error\errErrorHandlerDialog.cpp">
+      <Filter>error\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="error\errErrorHandlerLogger.cpp">
+      <Filter>error\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\stoChunk.cpp">
+      <Filter>storage\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\stoCompressor.cpp">
+      <Filter>storage\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\stoConfigFile.cpp">
+      <Filter>storage\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\stoFile.cpp">
+      <Filter>storage\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\stoFileCryptFile.cpp">
+      <Filter>storage\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\stoFileMemory.cpp">
+      <Filter>storage\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\stoFileMemoryMap.cpp">
+      <Filter>storage\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\stoFileOSFile.cpp">
+      <Filter>storage\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\stoFileUtils.cpp">
+      <Filter>storage\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\stoObjectReaderChunk.cpp">
+      <Filter>storage\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\stoObjectWriterChunk.cpp">
+      <Filter>storage\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\stoPackOSFile.cpp">
+      <Filter>storage\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\stoProperty.cpp">
+      <Filter>storage\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="storage\stoPropertyStream.cpp">
+      <Filter>storage\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matAdapters.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matColor.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matColorConvert.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matColorInt.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matConstants.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matD3DXMathEmu.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matDistance.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matFarPlane.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matFarPosition.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matFarTransform.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matIntersect.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matIntVector3.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matIntVector4.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matMatrix4x3T.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matMatrix4x4.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matPlane.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matProperty.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matQuaternion.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matRandom.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matTransform.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matUtils.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matVector3.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="math\matVector4.cpp">
+      <Filter>math\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proAdapter.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proChildSort.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proClass.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proClassAdapter.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proClassNative.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proClassOwner.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proClassRegistry.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proFirst.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proObject.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proObjectImpl.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proObjectReader.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proObjectReaderXML.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proObjectWriter.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proObjectWriterXML.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proObserver.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proObserverTree.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proProperty.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proPropertyFunction.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proPropertyNative.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proPropertyOwner.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proStringUtils.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proUndoCmds.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proUndoList.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proValidator.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="properties\proXmlParser.cpp">
+      <Filter>properties\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\tstFramework.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="test\tstUnit.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="test\todo.txt">
+      <Filter>test</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
