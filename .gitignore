@@ -1,3 +1,5 @@
 Debug
 log
 .vs
+resource.pdb
+AuthServer.pdb
