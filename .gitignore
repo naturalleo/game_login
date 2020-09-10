@@ -7,3 +7,5 @@ lib
 *.tlog
 *.lib
 *.obj
+AuthServer.sdf
+AuthServer.opensdf

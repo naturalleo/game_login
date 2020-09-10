@@ -185,7 +185,7 @@ void EncPwdSha512( char *password, unsigned int salt )
 
 	// Create string'ed salt
 	char buf[9];
-	snprintf(buf,9,"%08x",salt);
+	_snprintf(buf,9,"%08x",salt);
 	
 	// Concat salt to original password
 	sPassword += string(buf);

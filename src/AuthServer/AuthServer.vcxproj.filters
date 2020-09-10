@@ -2,15 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{2a1fc1bb-cb22-4e7f-9f1d-b94641b59e73}</UniqueIdentifier>
+      <UniqueIdentifier>{30f2572d-4ef4-4ded-9130-3060fdb64921}</UniqueIdentifier>
       <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{92027e1e-685d-4dd7-8d49-0795df66b4e0}</UniqueIdentifier>
+      <UniqueIdentifier>{7b585470-7d0f-4d7a-ac22-9df636bfff9f}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl</Extensions>
     </Filter>
     <Filter Include="Resource Files">
-      <UniqueIdentifier>{cb7beacc-8ab2-4619-bfb1-a776997a753e}</UniqueIdentifier>
+      <UniqueIdentifier>{f0e155da-c5cb-4b1f-9049-69fbe717bb3d}</UniqueIdentifier>
       <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
     </Filter>
   </ItemGroup>
@@ -109,9 +109,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WantedSocket.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MySQLConnection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -218,7 +215,7 @@
     <ClInclude Include="WantedSocket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MySQLConnection.h">
+    <ClInclude Include="Platform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -226,16 +223,5 @@
     <ResourceCompile Include="resource.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="icon2.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="icon3.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="icon.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
   </ItemGroup>
 </Project>

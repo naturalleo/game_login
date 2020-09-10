@@ -1,8 +1,9 @@
 #include <stdio.h>
 //#include "config-win.h"
-#include <Tick.h>
-#include <wyString.h>
-#include "../../utils/ShareUtil.h"
+//#include <Tick.h>
+//#include <wyString.h>
+//#include "../../utils/ShareUtil.h"
+#include "Log.h"
 #include "MySQLConnection.h"
 #ifdef WINDOWS
 #include <tchar.h>
@@ -99,7 +100,7 @@ VOID CMySQLConenction::SetEncodingName(const char* encoding)
 {
 	if (strcmp(m_sEncodingName, encoding) != 0)
 	{
-		_asncpytA(m_sEncodingName, encoding);
+		strcpy(m_sEncodingName, encoding);
 		if (m_boConnected)
 		{
 			if (0 == Exec("set names %s;", m_sEncodingName))
@@ -121,18 +122,18 @@ BOOL CMySQLConenction::Connect()
 			if (mysql_real_connect(&m_MySQL, m_sServerHost, m_sUserName, m_sPassWord, m_sDataBase, (UINT)m_nServerPort,NULL, (UINT)m_nConnectFlags) )
 			{
 				m_boConnected = TRUE;
-				OutputMsg(rmTip, "mysql character set: %s", mysql_character_set_name(&m_MySQL));
+				log_1.AddLog(LOG_DEBUG, "mysql character set: %s", mysql_character_set_name(&m_MySQL));
 				if (m_sEncodingName[0])
 				{
 					// 新增检测设置字符编码是否成功
 					if (!mysql_set_character_set(&m_MySQL, m_sEncodingName))
 					{
-						OutputMsg(rmTip, "成功设置数据库的字符编码, 当前mysql character set: %s", mysql_character_set_name(&m_MySQL));
+						log_1.AddLog(LOG_DEBUG, "成功设置数据库的字符编码, 当前mysql character set: %s", mysql_character_set_name(&m_MySQL));
 					}
 					else
 					{
 						m_boConnected = FALSE;
-						OutputMsg(rmError, _T("设置数据库(%s)字符编码出错：%s"), m_sDataBase, mysql_error(&m_MySQL));
+						log_1.AddLog(LOG_ERROR, _T("设置数据库(%s)字符编码出错：%s"), m_sDataBase, mysql_error(&m_MySQL));
 						mysql_close(&m_MySQL);
 					}
 					//if (0 == Exec("set names %s;", m_sEncodingName))
@@ -142,13 +143,13 @@ BOOL CMySQLConenction::Connect()
 			else
 			{
 				Result = FALSE;
-				OutputMsg( rmError, _T("无法连接到数据库：%s"), mysql_error(&m_MySQL) );
+				log_1.AddLog(LOG_ERROR, _T("无法连接到数据库：%s"), mysql_error(&m_MySQL) );
 				mysql_close(&m_MySQL);
 			}
 		}
 		else
 		{
-			OutputMsg( rmError, _T("无法初始化数据库连接程序") );
+			log_1.AddLog(LOG_ERROR, _T("无法初始化数据库连接程序") );
 			Result	= FALSE;
 		}
 	}
@@ -188,7 +189,7 @@ VOID CMySQLConenction::AfterQueryed(int nError)
 			m_sQueryBuffer[128] = 0;
 			const char* err = mysql_error(&m_MySQL);
 			if (strlen(err))
-				OutputMsg(rmError, _T("%s(%s)"), mysql_error(&m_MySQL), m_sQueryBuffer );
+				log_1.AddLog(LOG_DEBUG, _T("%s(%s)"), mysql_error(&m_MySQL), m_sQueryBuffer );
 		}
 	}
 	else
@@ -204,7 +205,7 @@ VOID CMySQLConenction::AfterQueryed(int nError)
 		OutputMsg(rmError, *ws);
 		delete ws;
 #else
-		OutputMsg(rmError, mysql_error(&m_MySQL));
+		log_1.AddLog(LOG_ERROR, mysql_error(&m_MySQL));
 #endif
 		if ( m_boMultiThread ) LeaveCriticalSection( &m_QueryLock );
 	}
@@ -231,7 +232,7 @@ VOID CMySQLConenction::AfterExeced(int nError)
 		OutputMsg(rmError, *ws);
 		delete ws;
 #else
-		OutputMsg(rmError, mysql_error(&m_MySQL));
+		log_1.AddLog(LOG_ERROR, mysql_error(&m_MySQL));
 #endif
 		if ( m_boMultiThread ) LeaveCriticalSection( &m_QueryLock );
 	}
