@@ -1,0 +1,61 @@
+﻿  corArgFormatter.cpp
+  matMatrix4x3T.cpp
+  proClassNative.cpp
+  proObjectWriterXML.cpp
+e:\game_login\lib\arda2\properties\proobjectwriterxml.cpp(451): error C2220: 警告被视为错误 - 没有生成“object”文件
+e:\game_login\lib\arda2\properties\proobjectwriterxml.cpp(451): warning C4456: “theObject1”的声明隐藏了上一个本地声明
+  e:\game_login\lib\arda2\properties\proobjectwriterxml.cpp(415): note: 参见“theObject1”的声明
+  proObserver.cpp
+  proUndoCmds.cpp
+e:\game_login\lib\arda2\properties\proundocmds.cpp(43): error C2220: 警告被视为错误 - 没有生成“object”文件
+e:\game_login\lib\arda2\properties\proundocmds.cpp(43): warning C4459: “ignore”的声明隐藏了全局声明
+  d:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\tuple(223): note: 参见“std::ignore”的声明
+e:\game_login\lib\arda2\properties\proundocmds.cpp(260): warning C4459: “ignore”的声明隐藏了全局声明
+  d:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\tuple(223): note: 参见“std::ignore”的声明
+e:\game_login\lib\arda2\properties\proundocmds.cpp(365): warning C4459: “ignore”的声明隐藏了全局声明
+  d:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\tuple(223): note: 参见“std::ignore”的声明
+  proUndoList.cpp
+  proXmlParser.cpp
+e:\game_login\lib\arda2\properties\proxmlparser.cpp(152): error C2220: 警告被视为错误 - 没有生成“object”文件
+e:\game_login\lib\arda2\properties\proxmlparser.cpp(152): warning C4458: “value”的声明隐藏了类成员
+  e:\game_login\lib\arda2\properties\proxmlparser.h(54): note: 参见“XMLNode::value”的声明
+e:\game_login\lib\arda2\properties\proxmlparser.cpp(429): warning C4458: “value”的声明隐藏了类成员
+  e:\game_login\lib\arda2\properties\proxmlparser.h(54): note: 参见“XMLNode::value”的声明
+  stoChunk.cpp
+  stoCompressor.cpp
+e:\game_login\lib\arda2\storage\stocompressor.cpp(20): fatal error C1083: 无法打开包括文件: “zlib.h”: No such file or directory
+  stoConfigFile.cpp
+  stoFileCryptFile.cpp
+e:\game_login\lib\arda2\storage\stofilecryptfile.h(23): fatal error C1083: 无法打开包括文件: “openssl/blowfish.h”: No such file or directory
+  stoFileMemory.cpp
+  stoFileOSFile.cpp
+e:\game_login\lib\arda2\storage\stofileosfile.cpp(273): error C2220: 警告被视为错误 - 没有生成“object”文件
+e:\game_login\lib\arda2\storage\stofileosfile.cpp(273): warning C4457: “bufferSize”的声明隐藏了函数参数
+  e:\game_login\lib\arda2\storage\stofileosfile.cpp(265): note: 参见“bufferSize”的声明
+  stoFileUtils.cpp
+  stoObjectReaderChunk.cpp
+e:\game_login\lib\arda2\storage\stoobjectreaderchunk.cpp(256): error C2220: 警告被视为错误 - 没有生成“object”文件
+e:\game_login\lib\arda2\storage\stoobjectreaderchunk.cpp(256): warning C4456: “tag”的声明隐藏了上一个本地声明
+  e:\game_login\lib\arda2\storage\stoobjectreaderchunk.cpp(120): note: 参见“tag”的声明
+  stoObjectWriterChunk.cpp
+  stoPackOSFile.cpp
+e:\game_login\lib\arda2\storage\stofileview.h(179): error C2220: 警告被视为错误 - 没有生成“object”文件
+e:\game_login\lib\arda2\storage\stofileview.h(179): warning C4457: “bufferSize”的声明隐藏了函数参数
+  e:\game_login\lib\arda2\storage\stofileview.h(169): note: 参见“bufferSize”的声明
+  stoProperty.cpp
+  tstFramework.cpp
+e:\game_login\lib\arda2\test\tstframework.cpp(169): error C2220: 警告被视为错误 - 没有生成“object”文件
+e:\game_login\lib\arda2\test\tstframework.cpp(169): warning C4456: “it”的声明隐藏了上一个本地声明
+  e:\game_login\lib\arda2\test\tstframework.cpp(157): note: 参见“it”的声明
+e:\game_login\lib\arda2\test\tstframework.cpp(198): warning C4456: “it”的声明隐藏了上一个本地声明
+  e:\game_login\lib\arda2\test\tstframework.cpp(157): note: 参见“it”的声明
+e:\game_login\lib\arda2\test\tstframework.cpp(236): warning C4456: “it”的声明隐藏了上一个本地声明
+  e:\game_login\lib\arda2\test\tstframework.cpp(198): note: 参见“it”的声明
+  正在生成代码...
+  正在编译...
+  tstUnit.cpp
+  utlStackDbg.cpp
+c:\program files (x86)\windows kits\8.1\include\um\dbghelp.h(1544): error C2220: 警告被视为错误 - 没有生成“object”文件
+c:\program files (x86)\windows kits\8.1\include\um\dbghelp.h(1544): warning C4091: “typedef ”: 没有声明变量时忽略“<unnamed-enum-hdBase>”的左侧
+c:\program files (x86)\windows kits\8.1\include\um\dbghelp.h(3190): warning C4091: “typedef ”: 没有声明变量时忽略“<unnamed-enum-sfImage>”的左侧
+  正在生成代码...

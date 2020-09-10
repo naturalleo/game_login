@@ -3,9 +3,9 @@ log
 .vs
 resource.pdb
 AuthServer.pdb
-lib
 *.tlog
 *.lib
 *.obj
 AuthServer.sdf
 AuthServer.opensdf
+cryptLib.sdf
