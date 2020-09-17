@@ -199,3 +199,18 @@ sendQueueLevel = false
 ;enableVerboseLogging = false
 ; "Debug" logging adds the highest level of detailed logging.
 ;enableDebugLogging = false
+;server version
+serverVersion = 2
+
+
+;---------------------------------------------------------------
+mysql_host = "192.168.1.68"
+mysql_port = 3306
+mysql_database = "yijian"
+mysql_user = "root"
+mysql_password = "root"
+
+;--------------------------------------------------------------
+
+useForbiddenIPList = true
+

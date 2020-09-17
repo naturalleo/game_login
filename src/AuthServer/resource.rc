@@ -77,6 +77,149 @@ LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
 // remains consistent on all systems.
 IDI_ICON3               ICON                    "icon.ico"
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAIN_MENU MENU
+BEGIN
+    POPUP "控制中心"
+    BEGIN
+        MENUITEM "ip reload",                   ID_LOGINMODE_RELOAD_IP
+    END
+    POPUP "工具"
+    BEGIN
+        MENUITEM "发送物品",                        ID_TOOL_GIFT
+        MENUITEM "列表测试",                        ID_40008
+    END
+    POPUP "信息"
+    BEGIN
+        MENUITEM "boss刷新状态",                    ID_40009
+    END
+    POPUP "日志"
+    BEGIN
+        MENUITEM "日志等级",                        ID_LOGGING_LOGGINGLEVEL
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LOGIN DIALOG 0, 0, 173, 98
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "SQL Login"
+FONT 10, "System"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,77,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,116,77,50,14
+    LTEXT           "File:",IDC_STATIC,8,19,45,8
+    LTEXT           "Login Name:",IDC_STATIC,8,37,47,8
+    LTEXT           "Password:",IDC_STATIC,8,54,42,8
+    EDITTEXT        IDC_FILE,65,15,101,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_USER,65,33,101,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASS,65,51,101,14,ES_PASSWORD | ES_AUTOHSCROLL
+END
+
+IDD_DIALOG_GIFT DIALOGEX 0, 0, 265, 124
+STYLE DS_LOCALEDIT | DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,66,87,50,14
+    PUSHBUTTON      "取消",IDCANCEL,147,86,50,14
+    LTEXT           "玩家账号:",IDC_DIALOG_STATIC_1,68,24,45,12
+    EDITTEXT        IDC_DIALOG_EDIT_1,112,23,77,14,ES_AUTOHSCROLL
+    LTEXT           "道具名字:",IDC_DIALOG_STATIC_2,68,44,36,8
+    LTEXT           "道具数量:",IDC_DIALOG_STATIC_3,68,62,36,8
+    EDITTEXT        IDC_DIALOG_EDIT_2,112,40,76,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DIALOG_EDIT_3,112,60,75,14,ES_AUTOHSCROLL
+END
+
+IDD_DIALOG_LIST DIALOGEX 0, 0, 309, 177
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TEST_LIST1,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,23,17,258,133
+END
+
+IDD_DIALOG_BOSS DIALOGEX 0, 0, 235, 205
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST_BOSS,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,18,15,186,168
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_LOGIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 166
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 91
+    END
+
+    IDD_DIALOG_GIFT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 258
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 117
+    END
+
+    IDD_DIALOG_LIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 170
+    END
+
+    IDD_DIALOG_BOSS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 198
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_DIALOG_GIFT AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_DIALOG_LIST AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_DIALOG_BOSS AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
 #endif    // 中文(简体，中国) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -114,70 +257,6 @@ END
 #endif    // APSTUDIO_INVOKED
 
 #endif    // 韩语(韩国) resources
-/////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////////////////////////////////////////////////////
-// 英语(美国) resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
-#pragma code_page(1252)
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Menu
-//
-
-IDR_MAIN_MENU MENU
-BEGIN
-    POPUP "console"
-    BEGIN
-        MENUITEM "test1",                       ID_LOGINMODE_TEST
-    END
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Dialog
-//
-
-IDD_LOGIN DIALOG 0, 0, 173, 98
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "SQL Login"
-FONT 10, "System"
-BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,77,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,116,77,50,14
-    LTEXT           "File:",IDC_STATIC,8,19,45,8
-    LTEXT           "Login Name:",IDC_STATIC,8,37,47,8
-    LTEXT           "Password:",IDC_STATIC,8,54,42,8
-    EDITTEXT        IDC_FILE,65,15,101,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_USER,65,33,101,14,ES_AUTOHSCROLL
-    EDITTEXT        IDC_PASS,65,51,101,14,ES_PASSWORD | ES_AUTOHSCROLL
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO
-BEGIN
-    IDD_LOGIN, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 166
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 91
-    END
-END
-#endif    // APSTUDIO_INVOKED
-
-#endif    // 英语(美国) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

@@ -29,54 +29,6 @@ CServerList::~CServerList()
 
 void CServerList::Load()
 {
-	int port = config.worldPort;
-	
-	CDBConn conn(g_linDB);
-
-	WorldServer worldserver;
-	unsigned int localServerId;
-	std::map<ServerId, WorldServer> newServerList;
-
-	conn.Bind( &localServerId );
-	conn.Bind( worldserver.name, 26 );
-	conn.Bind( worldserver.ip, 16 );
-	conn.Bind( worldserver.inner_ip, 16 );
-	conn.Bind( &worldserver.ageLimit );
-	conn.Bind( &worldserver.pkflag );
-    conn.Bind( &worldserver.region_id );
-	
-	if ( conn.Execute("Select id, name, ip, inner_ip, ageLimit, pk_flag, server_group_id From server Order by id") )
- 	{
-		bool nodata;
-		conn.Fetch( &nodata );
-		while( !nodata )
-		{
-			worldserver.serverid.SetValue(localServerId);
-			worldserver.inner_addr.S_un.S_addr = inet_addr( worldserver.inner_ip );
-			worldserver.outer_addr.S_un.S_addr = inet_addr( worldserver.ip);
-			worldserver.outer_port=config.worldPort;
-			worldserver.s = NULL;
-			worldserver.UserNum = 0;
-			worldserver.maxUsers = 0;
-            worldserver.status = 0;
-
-			newServerList.insert(std::make_pair(worldserver.serverid, worldserver ));
-			
-			log_1.AddLog( LOG_NORMAL, "Server %d loaded, innerip:%s,outerip:%s,port:%d,agelimit:%d,pk:%d",  
-				static_cast<int>(worldserver.serverid.GetValueChar()),
-				worldserver.inner_ip,
-				worldserver.ip,
-				port,
-				worldserver.ageLimit, 
-				worldserver.pkflag);
-
-			conn.Fetch( &nodata );
-		}
-
-		mylock.WriteLock();
-		m_serverList.swap(newServerList);
-		mylock.WriteUnlock();
-	}
 }
 
 void CServerList::SetServerStatus(ServerId id, ServerStatus status)
@@ -304,44 +256,6 @@ static void PushShort(std::vector<char> & buffer, int value)
 	buffer.push_back(value >> 8);	
 }
 
-void CServerList::MakeServerListPacket(std::vector<char> & buffer, ServerId lastServer, int regions[MAX_REGIONS]) const
-{
-	mylock.ReadLock();
-
-	buffer.push_back(0);  // Reserving space for packet size
-	buffer.push_back(0);
-	buffer.push_back(AC_SEND_SERVERLIST);
-	buffer.push_back(char(0)); // static_cast<char>(m_serverList.size())); // reserving space for serverlist size
-	buffer.push_back(lastServer.GetValueChar());
-	
-    int serverCount=0;
-	for (ServerListType::const_iterator i=m_serverList.begin(); i!=m_serverList.end(); ++i)
-	{        
-        for (int r=0; r<MAX_REGIONS; ++r)
-        {
-            if (i->second.region_id == 0 || i->second.region_id == regions[r])
-            {
-                ++serverCount;
-
-     	        // These add up to 14 bytes:
-		        buffer.push_back(i->second.serverid.GetValueChar());
-		        PushInt(buffer,i->second.outer_addr.S_un.S_addr);
-		        PushInt(buffer,i->second.outer_port);
-		        buffer.push_back(i->second.ageLimit);
-		        buffer.push_back(i->second.pkflag);
-		        PushShort(buffer,i->second.UserNum);
-		        PushShort(buffer,i->second.maxUsers);
-		        buffer.push_back(i->second.status);
-				buffer.push_back(i->second.isVIP);
-
-                break;
-            }
-        }
-	}
-		
-    buffer[3]=static_cast<char>(serverCount);
-	mylock.ReadUnlock();
-}
 
 void CServerList::MakeQueueSizePacket(std::vector<char> & buffer) const
 {
@@ -401,70 +315,6 @@ void CServerList::UpdateDB() const
     dblogtime.minute   = log_timeTM.tm_min;
     dblogtime.second   = log_timeTM.tm_sec;
     dblogtime.fraction = 0;
-
-    // Record "server 0," which is actually the total number of connected users
-    {
-        SQLINTEGER logtimeLen=0;
-		SQLBindParameter( conn.m_stmt, 1, SQL_PARAM_INPUT, SQL_C_TYPE_TIMESTAMP,SQL_TIMESTAMP, 19, 0, (SQLPOINTER)&dblogtime, 0, &logtimeLen );
-	  
-        SQLINTEGER serverIdLen = 4;
-		unsigned long serverid = 0;
-		SQLBindParameter( conn.m_stmt, 2, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&serverid, 0, &serverIdLen);
-
-        SQLINTEGER worlduserLen = 4;
-		SQLBindParameter( conn.m_stmt, 3, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&(reporter.m_UserCount), 0, &worlduserLen);
-
-        SQLINTEGER limituserLen = 4;
-		SQLBindParameter( conn.m_stmt, 4, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&(reporter.m_UserCount), 0, &limituserLen);
-
-        SQLINTEGER authuserLen = 4;
-		SQLBindParameter( conn.m_stmt, 5, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&(reporter.m_UserCount), 0, &authuserLen);
- 
-		SQLINTEGER waituserLen = 4;
-		SQLBindParameter( conn.m_stmt, 6, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&reporter.m_SocketCount, 0, &waituserLen);
-
-		RETCODE RetCode= SQLExecDirect( conn.m_stmt, (SQLCHAR*)buffer, SQL_NTS );
-		
-		if ( RetCode == SQL_SUCCESS ) {
-			conn.ResetHtmt();
-		} else {
-			conn.Error(SQL_HANDLE_STMT, conn.m_stmt, buffer);
-			conn.ResetHtmt();
-		}
-    }
-
-    // Record the count for all the real servers
-	for (ServerListType::const_iterator i=m_serverList.begin(); i!=m_serverList.end(); ++i)
-	{
-        SQLINTEGER logtimeLen=0;
-		SQLBindParameter( conn.m_stmt, 1, SQL_PARAM_INPUT, SQL_C_TYPE_TIMESTAMP,SQL_TIMESTAMP, 19, 0, (SQLPOINTER)&dblogtime, 0, &logtimeLen );
-	  
-        SQLINTEGER serverIdLen = 4;
-		unsigned long serverid = i->first.GetValueChar();
-		SQLBindParameter( conn.m_stmt, 2, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&serverid, 0, &serverIdLen);
-
-        SQLINTEGER worlduserLen = 4;
-		SQLBindParameter( conn.m_stmt, 3, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&(i->second.UserNum), 0, &worlduserLen);
-
-        SQLINTEGER limituserLen = 4;
-		SQLBindParameter( conn.m_stmt, 4, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&(i->second.maxUsers), 0, &limituserLen);
-
-        SQLINTEGER authuserLen = 4;
-		SQLBindParameter( conn.m_stmt, 5, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&(reporter.m_UserCount), 0, &authuserLen);
- 
-		SQLINTEGER waituserLen = 4;
-		SQLBindParameter( conn.m_stmt, 6, SQL_PARAM_INPUT, SQL_C_ULONG, SQL_INTEGER, 0, 0, (SQLPOINTER)&reporter.m_SocketCount, 0, &waituserLen);
-
-		RETCODE RetCode= SQLExecDirect( conn.m_stmt, (SQLCHAR*)buffer, SQL_NTS );
-		
-		if ( RetCode == SQL_SUCCESS ) {
-			conn.ResetHtmt();
-		} else {
-			conn.Error(SQL_HANDLE_STMT, conn.m_stmt, buffer);
-			conn.ResetHtmt();
-		}
-	
-	}
 
 	mylock.ReadUnlock();
 }

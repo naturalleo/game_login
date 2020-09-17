@@ -2,7 +2,7 @@
 #define _PROTOCOL_H
 #include "GlobalAuth.h"
 // when client send to auth
-#define PROTOCOL_VERSION 1
+//#define PROTOCOL_VERSION 1
 
 // This must match AUTH_BYTES in auth.h
 #define MAX_USERDATA 128
@@ -11,12 +11,8 @@
 #define MAX_USERDATA_NEW (MAX_USERDATA - MAX_USERDATA_ORIG)
 
 enum {
-	AQ_LOGIN,
+	AQ_SERVER_VERSION,
 	AQ_SERVER_LIST,
-	AQ_ABOUT_TO_PLAY,
-	AQ_LOGOUT,
-	AQ_LOGIN_MD5,
-	AQ_SERVER_LIST_EXT, // Server List kind
 	AQ_MAX,
 };
 

@@ -18,7 +18,15 @@
 
 #include "GlobalAuth.h"
 
+typedef struct File
+{
+	int size;
+	char *fileBuff;
+}File;
+
+
 typedef std::map<std::string, std::string, iless> StringMap;
+typedef std::map<int, File> ResouceMap;
 
 // These values are duplicated in Common/auth/auth.h
 #define USA_AUTH_PROTOCOL_VERSION			30206	// version of the auth used in us/europe production coh from 2004/4/28 - ???
@@ -80,18 +88,18 @@ public:
 	int  WaitingUserLimit;
 
 
-	// 2003-07-15 logd 관련 config 추가
+	// 2003-07-15 logd 
 	bool UseLogD;
-	in_addr LogDIP;             // LOGD서버 IP
-	int  LogDPort;				// LOGD서버 포트
-	int  LogDReconnectInterval; // 연결이 끊겼을 경우 재 연결 시도 시간.
+	in_addr LogDIP;             // LOGD
+	int  LogDPort;				// LOGD
+	int  LogDReconnectInterval; // 
 
 
-	// 2003-07-27 GM 로그인 관련 Flag 
+	// 2003-07-27 GM Flag 
 	bool RestrictGMIP;
 	in_addr GMIP;
 
-	// 2003-08-22 Wanted System 관련 항목 추가
+	// 2003-08-22 Wanted System 
 	bool UseWantedSystem;
 	in_addr WantedIP;
 	int WantedPort;
@@ -106,11 +114,11 @@ public:
 	bool FreeServer;
 	bool HybridServer;
 
-	// 2003-11-25 forbidden Ip list 옵션 추가
+	// 2003-11-25 forbidden Ip list 
 	bool useForbiddenIPList;
 
-	// 2004-01-28 reconnect 관련 config 추가
-	bool supportReconnect; // default = false로  세팅한다.
+	// 2004-01-28 reconnect
+	bool supportReconnect; // default = false
 
 	bool gameServerSpecifiesId;
 	bool allowUnknownServers;
@@ -121,17 +129,23 @@ public:
     bool enableVerboseLogging;
     bool enableDebugLogging;
 
+
+    int serverVersion;
+
 private:
 	StringMap map;
-
+	ResouceMap mapResource;
 	int DateTimestringToSystemTime(SYSTEMTIME *time, const char *str);
 	void ClearDateTime(SYSTEMTIME *time);
 
 	int CompareDateTime(const SYSTEMTIME *time1, const SYSTEMTIME *time2);
 	int IsValidDateTime(const SYSTEMTIME *time);
 
+	bool InitClientVersionRes();
+
 public:
 	int IsReactivationActive();
+	const File* GetClientResourceById(int n);
 };
 
 extern Config config;

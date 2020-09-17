@@ -41,7 +41,7 @@ public:
 	void SetServerUserCount( ServerId id, short userCount, short userLimit);
 	void SetServerQueueSize( ServerId id, int queueLevel, int queueSize, int queueTime);
 
-	void MakeServerListPacket(std::vector<char> & buffer, ServerId lastServer, int regions[MAX_REGIONS]) const;
+	//void MakeServerListPacket(std::vector<char> & buffer, ServerId lastServer, int regions[MAX_REGIONS]) const;
 	void MakeQueueSizePacket(std::vector<char> & buffer) const;
 
 	void UpdateDB() const;

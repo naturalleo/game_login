@@ -1,0 +1,165 @@
+﻿生成启动时间为 2020/9/14 18:28:22。
+     1>项目“E:\game_login\src\AuthServer\AuthServer.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../../lib /I../../lib/mysql/include /Zi /nologo /W3 /WX- /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _VC80_UPGRADE=0x0710 /D _MBCS /Gm- /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release/" /Fd".\Release/vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Blowfish.cpp buildn.cpp Config.cpp CSocketInt.cpp CSocketServer.cpp DBConn.cpp Exception.cpp GlobalAuth.cpp IOBuffer.cpp IOObject.cpp IOServer.cpp IOSocket.cpp IPList.cpp IPSessionDB.cpp Job.cpp Lock.cpp Log.cpp LogSocket.cpp md5.cpp Memory.cpp MySQLConnection.cpp PacketServerEx.cpp Parser.cpp Reporter.cpp ServerId.cpp ServerList.cpp SocketServerEx.cpp Thread.cpp util.cpp WantedSocket.cpp
+         Blowfish.cpp
+         buildn.cpp
+         Config.cpp
+         CSocketInt.cpp
+     1>e:\game_login\lib\mysql\include\mysql_version.h(13): warning C4005: “PROTOCOL_VERSION”: 宏重定义
+                 e:\game_login\src\authserver\Protocol.h(5) : 参见“PROTOCOL_VERSION”的前一个定义
+     1>e:\game_login\src\authserver\MySQLConnection.h(9): warning C4273: “__iob_func”: dll 链接不一致
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(137) : 参见“__iob_func”的前一个定义
+         CSocketServer.cpp
+     1>e:\game_login\lib\mysql\include\mysql_version.h(13): warning C4005: “PROTOCOL_VERSION”: 宏重定义
+                 e:\game_login\src\authserver\Protocol.h(5) : 参见“PROTOCOL_VERSION”的前一个定义
+     1>e:\game_login\src\authserver\MySQLConnection.h(9): warning C4273: “__iob_func”: dll 链接不一致
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(137) : 参见“__iob_func”的前一个定义
+         DBConn.cpp
+     1>e:\game_login\lib\mysql\include\mysql_version.h(13): warning C4005: “PROTOCOL_VERSION”: 宏重定义
+                 e:\game_login\src\authserver\Protocol.h(5) : 参见“PROTOCOL_VERSION”的前一个定义
+     1>e:\game_login\src\authserver\MySQLConnection.h(9): warning C4273: “__iob_func”: dll 链接不一致
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(137) : 参见“__iob_func”的前一个定义
+         Exception.cpp
+         GlobalAuth.cpp
+     1>e:\game_login\lib\mysql\include\mysql_version.h(13): warning C4005: “PROTOCOL_VERSION”: 宏重定义
+                 e:\game_login\src\authserver\Protocol.h(5) : 参见“PROTOCOL_VERSION”的前一个定义
+     1>e:\game_login\src\authserver\MySQLConnection.h(9): warning C4273: “__iob_func”: dll 链接不一致
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(137) : 参见“__iob_func”的前一个定义
+         IOBuffer.cpp
+         IOObject.cpp
+         IOServer.cpp
+     1>IOServer.cpp(617): warning C4102: “fail”: 未引用的标签
+         IOSocket.cpp
+         IPList.cpp
+         IPSessionDB.cpp
+         Job.cpp
+         Lock.cpp
+         Log.cpp
+         LogSocket.cpp
+         md5.cpp
+         Memory.cpp
+         正在生成代码...
+         正在编译...
+         MySQLConnection.cpp
+     1>e:\game_login\lib\mysql\include\mysql_version.h(13): warning C4005: “PROTOCOL_VERSION”: 宏重定义
+                 e:\game_login\src\authserver\Protocol.h(5) : 参见“PROTOCOL_VERSION”的前一个定义
+     1>e:\game_login\src\authserver\MySQLConnection.h(9): warning C4273: “__iob_func”: dll 链接不一致
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(137) : 参见“__iob_func”的前一个定义
+         PacketServerEx.cpp
+         Parser.cpp
+         Reporter.cpp
+         ServerId.cpp
+         ServerList.cpp
+     1>e:\game_login\lib\mysql\include\mysql_version.h(13): warning C4005: “PROTOCOL_VERSION”: 宏重定义
+                 e:\game_login\src\authserver\Protocol.h(5) : 参见“PROTOCOL_VERSION”的前一个定义
+     1>e:\game_login\src\authserver\MySQLConnection.h(9): warning C4273: “__iob_func”: dll 链接不一致
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(137) : 参见“__iob_func”的前一个定义
+         SocketServerEx.cpp
+     1>e:\game_login\lib\mysql\include\mysql_version.h(13): warning C4005: “PROTOCOL_VERSION”: 宏重定义
+                 e:\game_login\src\authserver\Protocol.h(5) : 参见“PROTOCOL_VERSION”的前一个定义
+     1>e:\game_login\src\authserver\MySQLConnection.h(9): warning C4273: “__iob_func”: dll 链接不一致
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(137) : 参见“__iob_func”的前一个定义
+         Thread.cpp
+     1>e:\game_login\lib\mysql\include\mysql_version.h(13): warning C4005: “PROTOCOL_VERSION”: 宏重定义
+                 e:\game_login\src\authserver\Protocol.h(5) : 参见“PROTOCOL_VERSION”的前一个定义
+     1>e:\game_login\src\authserver\MySQLConnection.h(9): warning C4273: “__iob_func”: dll 链接不一致
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(137) : 参见“__iob_func”的前一个定义
+         util.cpp
+         WantedSocket.cpp
+     1>e:\game_login\lib\mysql\include\mysql_version.h(13): warning C4005: “PROTOCOL_VERSION”: 宏重定义
+                 e:\game_login\src\authserver\Protocol.h(5) : 参见“PROTOCOL_VERSION”的前一个定义
+     1>e:\game_login\src\authserver\MySQLConnection.h(9): warning C4273: “__iob_func”: dll 链接不一致
+                 D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(137) : 参见“__iob_func”的前一个定义
+         正在生成代码...
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../../lib /I../../lib/mysql/include /Zi /nologo /W3 /WX- /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _VC80_UPGRADE=0x0710 /D _MBCS /Gm- /EHa /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release/" /Fd".\Release/vc120.pdb" /Gd /TC /analyze- /errorReport:prompt Des.c
+         Des.c
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1186,5): warning MSB8012: TargetPath(E:\game_login\src\AuthServer\Win32\Release\AuthServer.exe) does not match the Linker's OutputFile property value (E:\bin\Release\AuthServer.exe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\..\..\bin\Release\AuthServer.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\..\..\3rdparty\bin\ /LIBPATH:../../lib/mysql odbc32.lib odbccp32.lib ws2_32.lib imagehlp.lib Mswsock.lib mysqlclient.lib cryptLibd.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\..\..\bin\Release\AuthServer.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Win32\Release\AuthServer.lib" /MACHINE:X86 /SAFESEH Win32\Release\resource.res
+         .\Release/Blowfish.obj
+         .\Release/buildn.obj
+         .\Release/Config.obj
+         .\Release/CSocketInt.obj
+         .\Release/CSocketServer.obj
+         .\Release/DBConn.obj
+         .\Release/Des.obj
+         .\Release/Exception.obj
+         .\Release/GlobalAuth.obj
+         .\Release/IOBuffer.obj
+         .\Release/IOObject.obj
+         .\Release/IOServer.obj
+         .\Release/IOSocket.obj
+         .\Release/IPList.obj
+         .\Release/IPSessionDB.obj
+         .\Release/Job.obj
+         .\Release/Lock.obj
+         .\Release/Log.obj
+         .\Release/LogSocket.obj
+         .\Release/md5.obj
+         .\Release/Memory.obj
+         .\Release/MySQLConnection.obj
+         .\Release/PacketServerEx.obj
+         .\Release/Parser.obj
+         .\Release/Reporter.obj
+         .\Release/ServerId.obj
+         .\Release/ServerList.obj
+         .\Release/SocketServerEx.obj
+         .\Release/Thread.obj
+         .\Release/util.obj
+         .\Release/WantedSocket.obj
+     1>cryptLibd.lib(sha512.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项:  值“2”不匹配值“0”(Config.obj 中)
+     1>cryptLibd.lib(sha512.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项:  值“MTd_StaticDebug”不匹配值“MD_DynamicRelease”(Config.obj 中)
+     1>cryptLibd.lib(sha512.obj) : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/OPT:LBR”规范)
+     1>cryptLibd.lib(sha512Impl.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项:  值“2”不匹配值“0”(Config.obj 中)
+     1>cryptLibd.lib(sha512Impl.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项:  值“MTd_StaticDebug”不匹配值“MD_DynamicRelease”(Config.obj 中)
+     1>MSVCRT.lib(MSVCR120.dll) : error LNK2005: ___iob_func 已经在 MySQLConnection.obj 中定义
+     1>msvcprt.lib(MSVCP120.dll) : error LNK2005: "public: __thiscall std::locale::id::id(unsigned int)" (??0id@locale@std@@QAE@I@Z) 已经在 cryptLibd.lib(sha512.obj) 中定义
+     1>libcpmtd.lib(stdthrow.obj) : error LNK2038: 检测到“_ITERATOR_DEBUG_LEVEL”的不匹配项:  值“2”不匹配值“0”(Config.obj 中)
+     1>libcpmtd.lib(stdthrow.obj) : error LNK2038: 检测到“RuntimeLibrary”的不匹配项:  值“MTd_StaticDebug”不匹配值“MD_DynamicRelease”(Config.obj 中)
+     1>LIBCMTD.lib(invarg.obj) : error LNK2005: __invoke_watson 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(invarg.obj) : error LNK2005: __set_invalid_parameter_handler 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(winsig.obj) : error LNK2005: _signal 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(dbghook.obj) : error LNK2005: __crt_debugger_hook 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(vswprint.obj) : error LNK2005: __vswprintf 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(dosmap.obj) : error LNK2005: __errno 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(winxfltr.obj) : error LNK2005: __XcptFilter 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(winapisupp.obj) : error LNK2005: ___crtGetShowWindowMode 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(winapisupp.obj) : error LNK2005: ___crtSetUnhandledExceptionFilter 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(winapisupp.obj) : error LNK2005: ___crtTerminateProcess 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(winapisupp.obj) : error LNK2005: ___crtUnhandledException 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(sprintf.obj) : error LNK2005: _sprintf 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(sprintf.obj) : error LNK2005: _sprintf_s 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(vsnprnc.obj) : error LNK2005: _vsprintf_s 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(crt0dat.obj) : error LNK2005: __amsg_exit 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(crt0dat.obj) : error LNK2005: __cexit 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(crt0dat.obj) : error LNK2005: __exit 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(crt0dat.obj) : error LNK2005: __initterm_e 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(crt0dat.obj) : error LNK2005: _exit 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(wsetloca.obj) : error LNK2005: __configthreadlocale 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(mlock.obj) : error LNK2005: __lock 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(mlock.obj) : error LNK2005: __unlock 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(printf.obj) : error LNK2005: _printf 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(vsprintf.obj) : error LNK2005: _vsprintf 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(hooks.obj) : error LNK2005: "void __cdecl terminate(void)" (?terminate@@YAXXZ) 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(crt0init.obj) : error LNK2005: ___xi_a 已经在 MSVCRT.lib(cinitexe.obj) 中定义
+     1>LIBCMTD.lib(crt0init.obj) : error LNK2005: ___xi_z 已经在 MSVCRT.lib(cinitexe.obj) 中定义
+     1>LIBCMTD.lib(crt0init.obj) : error LNK2005: ___xc_a 已经在 MSVCRT.lib(cinitexe.obj) 中定义
+     1>LIBCMTD.lib(crt0init.obj) : error LNK2005: ___xc_z 已经在 MSVCRT.lib(cinitexe.obj) 中定义
+     1>LIBCMTD.lib(errmode.obj) : error LNK2005: ___set_app_type 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(osfinfo.obj) : error LNK2005: __get_osfhandle 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(osfinfo.obj) : error LNK2005: __open_osfhandle 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(_file.obj) : error LNK2005: __lock_file 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(_file.obj) : error LNK2005: __unlock_file 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(_file.obj) : error LNK2005: ___iob_func 已经在 MySQLConnection.obj 中定义
+     1>LIBCMTD.lib(abort.obj) : error LNK2005: __set_abort_behavior 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+     1>LIBCMTD.lib(fflush.obj) : error LNK2005: _fflush 已经在 MSVCRT.lib(MSVCR120.dll) 中定义
+            正在创建库 Win32\Release\AuthServer.lib 和对象 Win32\Release\AuthServer.exp
+     1>LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+     1>LINK : warning LNK4098: 默认库“LIBCMTD”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+     1>..\..\..\bin\Release\AuthServer.exe : fatal error LNK1169: 找到一个或多个多重定义的符号
+     1>已完成生成项目“E:\game_login\src\AuthServer\AuthServer.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:15.06

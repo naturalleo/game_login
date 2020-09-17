@@ -5,7 +5,6 @@
 #include "GlobalAuth.h"
 #include "job.h"
 #include "ServerList.h"
-#include "accountdb.h"
 #include "util.h"
 #include "ioserver.h"
 #include "IPSessionDB.h"
@@ -16,9 +15,11 @@
 #include "WantedSocket.h"
 #include "IPList.h"
 #include "resource.h"
+#include "GmTool.h"
+#include "GameReport.h"
 //#include <windows.h>
 
-#define BUTTON_WIDTH	160
+#define BUTTON_WIDTH	0
 
 #define RELOAD_BUTTON_ID	1
 #define	LOGLEVEL_BUTTON_ID	2
@@ -30,8 +31,8 @@
 HWND mainWnd;
 HWND logWnd;
 HWND reporterWnd;
-HWND reloadServerButtonWnd, 
-	 verboseLoggingButtonWnd;
+//HWND reloadServerButtonWnd, 
+//	 verboseLoggingButtonWnd;
 HINSTANCE g_instance;
 bool globalTeminateEvent=false;
 
@@ -127,8 +128,8 @@ _BEFORE
 			mainHeight = HIWORD(lParam);
 			MoveWindow(reporterWnd, BUTTON_WIDTH * 2, 0, mainWidth - BUTTON_WIDTH * 2, 20, TRUE);
 			MoveWindow(logWnd, 0, 20, mainWidth, mainHeight - 20, TRUE);
-			MoveWindow(reloadServerButtonWnd, 0, 0, BUTTON_WIDTH, 20, TRUE);
-			MoveWindow(verboseLoggingButtonWnd, BUTTON_WIDTH, 0, BUTTON_WIDTH, 20, TRUE);
+//			MoveWindow(reloadServerButtonWnd, 0, 0, BUTTON_WIDTH, 20, TRUE);
+//			MoveWindow(verboseLoggingButtonWnd, BUTTON_WIDTH, 0, BUTTON_WIDTH, 20, TRUE);
 		}
 		else if (hwnd == logWnd) {
 			log_1.Resize(LOWORD(lParam), HIWORD(lParam));
@@ -161,7 +162,7 @@ _BEFORE
 	case WM_TIMER:
 		if (wParam == 102)
 		{
-			reporter.m_UserCount = accountdb.GetUserNum();
+			reporter.m_UserCount = 0; //accountdb.GetUserNum();
 			InvalidateRect(reporterWnd, NULL, FALSE);
 
 		}
@@ -181,11 +182,25 @@ _BEFORE
 				if (buttonId == RELOAD_BUTTON_ID) {
 					g_ServerList.Load();
 				}
-				else if (buttonId == LOGLEVEL_BUTTON_ID) {
+				else if (buttonId == ID_LOGGING_LOGGINGLEVEL) {
 					OnChangeLoggingLevel();
 				}
-				else if(buttonId == ID_LOGINMODE_TEST)
-
+				else if (buttonId == ID_LOGINMODE_RELOAD_IP)
+				{
+					forbiddenIPList.Load("etc\\BlockIPs.txt");
+				}
+				else if (buttonId == ID_TOOL_GIFT)
+				{
+					g_tool->SendGiftToRole();
+				}
+				else if (buttonId == ID_40008)
+				{
+					g_tool->TestList();
+				}
+				else if (buttonId == ID_40009)
+				{
+					g_gameReport->GetGameBossInfo();
+				}
 				break;
 			}
 		}
@@ -226,6 +241,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	serverEx = new CIOServerEx; //auth gate
 	serverInt = new CServerInt; //inner server for gm tool
 
+
+	g_tool = new Tool;
+	g_gameReport = new GameReport;
+
 	WNDCLASSEX wcx;
 	wcx.cbSize = sizeof(WNDCLASSEX);
 	wcx.style = CS_CLASSDC;
@@ -253,7 +272,7 @@ exception_init();
 	}
 
 	mainWnd = CreateWindowEx(0, (const char*)windowClass, "AuthServer", WS_OVERLAPPEDWINDOW,
-		CW_USEDEFAULT, 0, 860, 440, NULL, NULL, hInstance, NULL);
+		600, 200, 860, 440, NULL, NULL, hInstance, NULL);
 
 	logWnd = CreateWindowEx(WS_EX_CLIENTEDGE, (const char*)windowClass, "", WS_CHILD, 0, 30, 640, 720,
 		mainWnd, NULL, hInstance, NULL);
@@ -261,11 +280,11 @@ exception_init();
 	reporterWnd = CreateWindowEx(WS_EX_CLIENTEDGE, (const char*)windowClass, "", WS_CHILD, 0, 0, 640, 30,
 		mainWnd, NULL, hInstance, NULL);
 
-	reloadServerButtonWnd = CreateWindowEx(0, "BUTTON", "Reload Server List", WS_CHILD|BS_PUSHBUTTON, 600, 0, 40, 30, mainWnd,
-		(HMENU)RELOAD_BUTTON_ID, hInstance, NULL);
+	//reloadServerButtonWnd = CreateWindowEx(0, "BUTTON", "Reload Server List", WS_CHILD|BS_PUSHBUTTON, 600, 0, 40, 30, mainWnd,
+	//	(HMENU)RELOAD_BUTTON_ID, hInstance, NULL);
 
-	verboseLoggingButtonWnd = CreateWindowEx(0, "BUTTON", "Logging Level", WS_CHILD|BS_PUSHBUTTON, 600, 0, 40, 30, mainWnd,
-		(HMENU)LOGLEVEL_BUTTON_ID, hInstance, NULL);
+	//verboseLoggingButtonWnd = CreateWindowEx(0, "BUTTON", "Logging Level", WS_CHILD|BS_PUSHBUTTON, 600, 0, 40, 30, mainWnd,
+	//	(HMENU)LOGLEVEL_BUTTON_ID, hInstance, NULL);
 		
 	log_1.SetWnd( logWnd );
 	reporter.SetWnd( reporterWnd );
@@ -400,10 +419,10 @@ exception_init();
 		}
 
 		g_linDB->Init( config.numDBConn );
-		g_ServerList.Load();
+		//g_ServerList.Load();
 
-		CDBConn conn(g_linDB);
-		conn.Execute( "update worldstatus set status=0" );		
+		//CDBConn conn(g_linDB);
+		//conn.Execute( "update worldstatus set status=0" );		
 
 	// 2003-07-15 // logd paste
 

@@ -3,7 +3,6 @@
 
 #include "GlobalAuth.h"
 #include "ServerId.h"
-#include "account.h"
 
 #define MAX_IP_LEN 15
 #define MAX_SERVER_NAME 25
@@ -44,32 +43,6 @@ struct WorldServer
 	int isVIP;
 };
 
-typedef struct LoginUser
-{
-	time_t  queuetime;
-	time_t  logintime; 
-	int		md5key;	   
-	in_addr loginIp;   
-	int		stat;      
-	ServerId serverid;  
-	SOCKET  s;	       
-	UserMode um_mode;  
-	char    account[MAX_ACCOUNT_LEN+1]; 
-	HANDLE  timerHandle;
-	char	gender;
-	int		ssn; 
-	int		ssn2;
-	int     loginflag;
-	int		warnflag; 
-	char    age; 
-	short int	cdkind;
-	ServerId lastworld;
-	ServerId selectedServerid;
-	int     queueLevel;
-	int     loyalty;
-	int     loyaltyLegacy;
-    int regions[MAX_REGIONS]; // Would much rather make this a std::vector, but this struct is used in functions that can't allow object unwinding.  Grrr.
-} LoginUser;
 
 class iless {
 public:
@@ -92,8 +65,6 @@ typedef struct world_user_num {
 
 } WorldUserNum;
 
-typedef std::map<int, LoginUser> UserMap;
-typedef std::map<int, LoginUser * > UserPointerMap;
 typedef std::map<int, int > SESSIONMAP;
 typedef void (*EncPwdType)(char *);
 

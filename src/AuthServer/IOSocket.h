@@ -180,6 +180,7 @@ public:
 	void SetAddress( in_addr in_Addr );
 	void Send(const char* format, ...);
 	void NonEncSend( const char* fromat, ... );
+	void SendResource(int cmdId, short key, const char *sendmsg, int msglen );
 	void Send(const char* sendmsg, int msglen );
 	int GetMd5Key(){ return oneTimeKey;}
 	const char * IP();

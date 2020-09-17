@@ -271,24 +271,6 @@ void WriteAction( char *action, char *account, in_addr ip, int ssn, char gender,
 // 첫문자 대문자 두번째 문자 소문자 입니다. 
 void StdAccount( char *account )
 {
-_BEFORE
-	int len=0;
-	
-	account[MAX_ACCOUNT_LEN]=0;
-	len = static_cast<int>(strlen(account));
-	if (len <= 0 )
-		return;
-
-	account[0] = toupper( account[0] );
-	
-	for( int i=1;i < len; i++ ){
-		if ( account[i] == ' ' ){
-			account[i]=0;
-			return;
-		} else
-			account[i] = tolower( account[i] );
-	}
-_AFTER_FIN
 }
 // DumpPacket은 Debug버전에서만 동작하도록 되어 있다. 
 void DumpPacket( const unsigned char *packet, int packetlen )
@@ -470,24 +452,41 @@ time_t ConvertSQLToTome( SQL_TIMESTAMP_STRUCT &sqlDate, struct tm *tm)
 // 계정은 첫문자가 알파벳으로 시작하며 영문자와 숫자만 가능하며 14자 이하이다. 
 bool CheckAccount( char *account )
 {
-	int inx=0;
-_BEFORE	
-
-	if (account == NULL)
-		return false;
-
-	if (!isalpha(account[0]))
-		return false;
-
-	for( inx=1; inx <= MAX_ACCOUNT_LEN; inx++ ) {
-		if ( account[inx] == NULL ){
-			return true;			
-		}
-		if ( (!isalpha(account[inx])) && (!isdigit(account[inx])) ) {
-			return false;
-		}
-	}
-
-_AFTER_FIN
 	return false;
+}
+
+string GBKToUTF8(const std::string& strGBK)
+{
+	string strOutUTF8 = "";
+	WCHAR * str1;
+	int n = MultiByteToWideChar(CP_ACP, 0, strGBK.c_str(), -1, NULL, 0);
+	str1 = new WCHAR[n];
+	MultiByteToWideChar(CP_ACP, 0, strGBK.c_str(), -1, str1, n);
+	n = WideCharToMultiByte(CP_UTF8, 0, str1, -1, NULL, 0, NULL, NULL);
+	char * str2 = new char[n];
+	WideCharToMultiByte(CP_UTF8, 0, str1, -1, str2, n, NULL, NULL);
+	strOutUTF8 = str2;
+	delete[]str1;
+	str1 = NULL;
+	delete[]str2;
+	str2 = NULL;
+	return strOutUTF8;
+}
+
+string Utf8ToGbk(const std::string & strUTF8)
+{
+	string strOutGBK = "";
+	WCHAR *str1;
+	int n = MultiByteToWideChar(CP_UTF8, 0, strUTF8.c_str(), -1, NULL, 0);
+	str1 = new WCHAR[n];
+	MultiByteToWideChar(CP_UTF8, 0, strUTF8.c_str(), -1, str1, n);
+	n = WideCharToMultiByte(CP_ACP, 0, str1, -1, NULL, 0, NULL, NULL);
+	char *str2 = new char[n];
+	WideCharToMultiByte(CP_ACP, 0, str1, -1, str2, n, NULL, NULL);
+	strOutGBK = str2;
+	delete[]str1;
+	str1 = NULL;
+	delete[]str2;
+	str2 = NULL;
+	return strOutGBK;
 }

@@ -11,7 +11,7 @@
 
 #include "Lock.h"
 
-#define BUFFER_SIZE 8192
+#define BUFFER_SIZE 20480
 
 class CIOBuffer
 {

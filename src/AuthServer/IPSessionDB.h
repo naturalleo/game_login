@@ -18,12 +18,12 @@ private:
 	// IPSession Value와 account Mapping DB ( 로그인 되었을때 )
 	SESSIONMAP IPSessionMap; // uid로 세션을 담아 둔다. 
 	// 로그인전에 LoingUser Info를 담아둘 DB가 필요하다.
-	UserPointerMap    WaitingUser;
+	//UserPointerMap    WaitingUser;
 	CLock WaitUserLock;
 	CLock IPSessionLock;
 
-	bool AddUserWait( int uid, LoginUser *lu );
-	bool DelUserWait( int uid, LoginUser **lu );
+	//bool AddUserWait( int uid, LoginUser *lu );
+	//bool DelUserWait( int uid, LoginUser **lu );
 public:
 	char StopIPCharge( UINT uid, UINT ip, int kind, int UseTime, time_t loginTime, ServerId lastworld, const char *account );
 	char StartIPCharge( UINT uid, UINT ip, int kind, ServerId WorldID);
@@ -32,7 +32,7 @@ public:
 	char ReadyToIPCharge( UINT uid, UINT ip, int kind, ServerId WorldID );
 	char ConfirmIPCharge( UINT uid, UINT ip, int kind, ServerId WorldID );
 
-	char AcquireSessionRequest(LoginUser *lu, int uid);
+	//char AcquireSessionRequest(LoginUser *lu, int uid);
 	char AcquireSessionSuccess( int Uid, int IPSession, char ErrorCode, int SpecificTime=0, int Kind=0 );
 	char AcquireSessionFail( int Uid, int IPSession, char ErrorCode );
 	

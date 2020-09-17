@@ -66,4 +66,21 @@ inline void GetStrFromPacket(const unsigned char *&packet, int dstLen, char *dst
     packet += LNStrNCpy(dst, (char *)packet, dstLen);
 }
 
+inline int Str2Int(LPCTSTR sText)
+{
+	int nResult = 0;
+
+#ifdef WINS
+	_stscanf(sText, _T("%d"), &nResult);
+#else
+	sscanf(sText, "%d", &nResult);
+#endif
+	return nResult;
+}
+
+std::string GBKToUTF8(const std::string& strGBK);
+std::string Utf8ToGbk(const std::string & strUTF8);
+
+#define ARRAY_LEN(a)	(sizeof(a)/sizeof(a[0]))
+
 #endif

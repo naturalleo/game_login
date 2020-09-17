@@ -160,7 +160,7 @@ bool Config::Load(const char *filename)
 		Country	  = GetInt("CountryCode");
 		UserData  = GetBool("UserData", false );
 		DevIP = Get("DevServerIP");
-		DumpPacket = GetBool("DumpPacket", false );
+		DumpPacket = GetBool("DumpPacket", true );
 		PCCafeFirst = GetBool( "PCCafeFirst", false );
 		
 		
@@ -216,7 +216,7 @@ bool Config::Load(const char *filename)
 		useQueue = GetBool("useQueue", true);
 		sendQueueLevel = GetBool("sendQueueLevel", true);
 		payStatOverride = GetInt("PayStatOverride", -1);
-		
+
 		#ifdef _DEBUG
 			#define DEFAULT_VERBOSE_LOGGING true
 			#define DEFAULT_DEBUG_LOGGING true
@@ -227,8 +227,18 @@ bool Config::Load(const char *filename)
 		
 		enableVerboseLogging = GetBool("enableVerboseLogging", DEFAULT_VERBOSE_LOGGING );
 		enableDebugLogging = GetBool("enableDebugLogging", DEFAULT_DEBUG_LOGGING );
+
+
+		serverVersion = GetInt("serverVersion", 0);
+
+		if(serverVersion > 0)
+		{
+			InitClientVersionRes();
+		}
+
 	}
-	
+
+
 	return configFileLoaded;
 }
 
@@ -366,4 +376,39 @@ int Config::IsReactivationActive()
 	}
 
 	return 0;
+}
+bool Config::InitClientVersionRes()
+{
+	bool isFinish = true;
+	for(int i = 1; i <= serverVersion; ++i)
+	{
+		int size = 0;
+		File file;
+		char fileName[20];
+		sprintf(fileName, "resource\\%d.zip", i);
+		char *pBuf = (char*)LoadBinary(fileName, &size, false);
+		file.size = size;
+		file.fileBuff = pBuf;
+		if (pBuf != NULL)
+		{
+			mapResource.insert(ResouceMap::value_type(i, file));
+		}
+		else
+		{
+			log_1.AddLog(LOG_ERROR, "Can't load Client Resource %s", fileName);
+			isFinish = false;
+		}
+
+	}
+
+	return isFinish;
+}
+const File* Config::GetClientResourceById(int key)
+{
+	ResouceMap::const_iterator i = mapResource.find(key);
+	if (i != mapResource.end()) {
+		return &(i->second);
+	} else {
+		return 0;
+	}
 }

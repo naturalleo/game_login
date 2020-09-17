@@ -12,6 +12,7 @@
 #include "GlobalAuth.h"
 #include "IOObject.h"
 #include "lock.h"
+#include "MySQLConnection.h"
 
 #define MAX_CONN_STR 256
 
@@ -19,20 +20,19 @@ typedef struct _SQLPool_
 {
     //TBROWN - adding a constructor to init these values so that it's obvious if they
 	//need to be cleaned up or not
-	_SQLPool_() : reset(false), hdbc(NULL), stmt(NULL), pNext(NULL)
+	_SQLPool_() : reset(false), connect(NULL), pNext(NULL)
 	{
 		bool here = true;
 	}
 	BOOL reset;
-	SQLHDBC hdbc;
-	SQLHSTMT stmt;
+	CMySQLConenction *connect;
 	struct _SQLPool_ *pNext;
 } SQLPool;
 
 class DBEnv : public CIOObject{
 protected:
     CLock m_lock;
-	SQLHENV m_henv;
+	CMySQLConenction *m_henv;
 	SQLPool *m_pSqlPool;
     SQLPool *m_pFreeSqlPool;
     SQLPool *m_pFreeSqlPoolEnd;
@@ -58,48 +58,19 @@ public:
 	void AllocSQLPool();
     bool LoadConnStrFromReg();
     void SaveConnStrToReg();
+    void SetupSQLConnection(CMySQLConenction *lpConnection);
 };
 
 class CDBConn {
 public:
-	SQLHSTMT m_stmt;
+	CMySQLConenction *m_connect;
     int m_colNum;
     int m_paramNum;
 
 	CDBConn(DBEnv *env);
 	~CDBConn();
+	CMySQLConenction* getConnect() { return m_connect; }
 
-	bool SetAutoCommit(bool autoCommit);
-	bool EndTran(SQLSMALLINT compType);
-	bool Execute(const char *format, ...);
-	bool ExecuteIndirect(const char *format, ...);
-	bool ExecuteInsert(const char *format, ...);
-	bool ExecuteInsertIndirect(const char *format, ...);
-	bool ExecuteDelete(const char *format, ...);
-	bool Fetch(bool *nodata = NULL);
-	void Error(SQLSMALLINT handleType, SQLHANDLE handle, const char *command);
-	void ErrorExceptInsert(SQLSMALLINT handleType, SQLHANDLE handle, const char *command);
-
-    // column binding for fetch
-	void SetColumnNumber(int n);
-	void Bind(char *str, int size);
-	void Bind(char *n);
-	void Bind(unsigned char *n);
-	void Bind(unsigned *n);
-	void Bind(int *n);
-	void Bind(short *n);
-
-    // parameter binding for parameterized call
-	void SetParamNumber(int n);
-	void BindParam(char *str, int size, SQLSMALLINT type = SQL_PARAM_INPUT);
-	void BindParam(char *n, SQLSMALLINT type = SQL_PARAM_INPUT);
-	void BindParam(unsigned char *n, SQLSMALLINT type = SQL_PARAM_INPUT);
-	void BindParam(unsigned *n, SQLSMALLINT type = SQL_PARAM_INPUT);
-	void BindParam(int *n, SQLSMALLINT type = SQL_PARAM_INPUT);
-	void BindParam(short *n, SQLSMALLINT type = SQL_PARAM_INPUT);
-
-	void ResetHtmt(void);
-    void CloseCursor(void) { SQLCloseCursor(m_stmt); }
 
     friend BOOL CALLBACK LoginDlgProc(HWND hDlg, DWORD dwMessage, DWORD wParam, DWORD lParam);
 

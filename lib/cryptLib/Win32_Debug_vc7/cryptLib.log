@@ -1,25 +1,6 @@
-﻿生成启动时间为 2020/9/10 15:35:04。
-     1>项目“E:\game_login\lib\cryptLib\cryptLib.vcxproj”在节点 2 上(rebuild 个目标)。
-     1>_PrepareForClean:
-         正在删除文件“Win32_Debug_vc7\cryptLib.lastbuildstate”。
-       InitializeBuildStatus:
-         正在创建“Win32_Debug_vc7\cryptLib.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
-       ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I../ /ZI /nologo /W4 /WX /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _VC80_UPGRADE=0x0710 /D _MBCS /GF /Gm- /EHsc /RTCu /MTd /GS /arch:SSE /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Win32_Debug_vc7\\" /Fd"Win32_Debug_vc7\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt sha512.cpp sha512Impl.cpp
-         sha512.cpp
-         sha512Impl.cpp
-         正在生成代码...
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(1151,5): warning MSB8012: TargetPath(E:\game_login\lib\cryptLib\Win32_vc7\cryptLib.lib) 与 Library 的 OutputFile 属性值(E:\game_login\lib\cryptLib\Win32_vc7\cryptLibd.lib)不匹配。这可能导致项目生成不正确。若要更正此问题，请确保 $(OutDir)、$(TargetName) 和 $(TargetExt) 属性值与 %(Lib.OutputFile) 中指定的值匹配。
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(1153,5): warning MSB8012: TargetName(cryptLib) 与 Library 的 OutputFile 属性值(cryptLibd)不匹配。这可能导致项目生成不正确。若要更正此问题，请确保 $(OutDir)、$(TargetName) 和 $(TargetExt) 属性值与 %(Lib.OutputFile) 中指定的值匹配。
-       Lib:
-         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"Win32_vc7\cryptLibd.lib" /NOLOGO Win32_Debug_vc7\sha512.obj
-         Win32_Debug_vc7\sha512Impl.obj
-         cryptLib.vcxproj -> E:\game_login\lib\cryptLib\Win32_vc7\cryptLib.lib
-       FinalizeBuildStatus:
-         正在删除文件“Win32_Debug_vc7\cryptLib.unsuccessfulbuild”。
-         正在对“Win32_Debug_vc7\cryptLib.lastbuildstate”执行 Touch 任务。
-     1>已完成生成项目“E:\game_login\lib\cryptLib\cryptLib.vcxproj”(rebuild 个目标)的操作。
-
-生成成功。
-
-已用时间 00:00:00.65
+﻿  sha512.cpp
+  sha512Impl.cpp
+  正在生成代码...
+d:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(1397,5): warning MSB8012: TargetPath(E:\game_login\lib\cryptLib\Win32_vc7\cryptLib.lib) 与 Library 的 OutputFile 属性值(E:\game_login\lib\cryptLib\Win32_vc7\cryptLibd.lib)不匹配。这可能导致项目生成不正确。若要更正此问题，请确保 $(OutDir)、$(TargetName) 和 $(TargetExt) 属性值与 %(Lib.OutputFile) 中指定的值匹配。
+d:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(1399,5): warning MSB8012: TargetName(cryptLib) 与 Library 的 OutputFile 属性值(cryptLibd)不匹配。这可能导致项目生成不正确。若要更正此问题，请确保 $(OutDir)、$(TargetName) 和 $(TargetExt) 属性值与 %(Lib.OutputFile) 中指定的值匹配。
+  cryptLib.vcxproj -> E:\game_login\lib\cryptLib\Win32_vc7\cryptLib.lib

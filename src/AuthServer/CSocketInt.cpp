@@ -5,7 +5,6 @@
 #include "buildn.h"
 #include "Packet.h"
 #include "IOServer.h"
-#include "accountdb.h"
 #include "config.h"
 #include "dbconn.h"
 
@@ -39,27 +38,6 @@ static const char *getToken(char *token, const char *input)
 
 static void KickAccount(CSocketInt *mysocket, const char *packet)
 {
-	char name[INT_SOCKET_BUFFER_LEN];
-	int  uid=0;
-	packet = getToken( name, packet );
-	if ( !packet ){
-		mysocket->Send( "0" );
-		return;
-	}
-	packet = getToken( name, packet );
-	int len = (int)strlen( name );
-	for( int i=0; i < len;i++)
-	{
-		if( !isdigit( name[i] ))
-		{
-			mysocket->Send( "0" );
-			return;
-		}
-	}
-	uid = atoi( name );
-	
-	accountdb.KickAccount( uid, S_KICKED_BY_WEB, true );
-	mysocket->Send( "1" );
 
 	return;
 }
@@ -67,42 +45,12 @@ static void KickAccount(CSocketInt *mysocket, const char *packet)
 
 static void GetLoginUserCount( CSocketInt *mysocket, const char *packet )
 {
-	mysocket->Send("%d", accountdb.GetUserNum() );
+	//mysocket->Send("%d", accountdb.GetUserNum() );
 	return;
 }
 
 static void KickAccountByaccount( CSocketInt *mysocket, const char *packet )
 {
-	char name[INT_SOCKET_BUFFER_LEN];
-	int  uid=0;
-	memset( name, 0, 32 );
-	packet = getToken( name, packet );
-	if ( !packet ){
-		mysocket->SendBuffer( "0,incorrect format", 19 );
-		return;
-	}
-	packet = getToken( name, packet );
-	name[14]=0;	
-	CDBConn dbconn(g_linDB);
-
-	dbconn.Bind( &uid );
-
-	dbconn.Execute( "SELECT uid FROM user_account with (NOLOCK) WHERE account = '%s'", name );
-	bool nodata=true;
-	if ( dbconn.Fetch(&nodata))
-	{
-		if ( nodata ){
-			mysocket->Send("0,InvalidAccount" );
-			return;
-		} else {
-			accountdb.KickAccount( uid, S_KICKED_BY_WEB, true );
-			mysocket->Send("1" );
-			return;
-		}
-	} else {
-		mysocket->Send("0,InvalidAccount" );
-
-	}
 
 	return;
 }
@@ -211,99 +159,11 @@ static void SetFreeServer( CSocketInt *mysocket, const char *packet )
 
 static void OCHKRequest( CSocketInt *mysocket, const char *packet )
 {
-	char buffer[256];
-	char account[16];
-	char pwd[ENC_PWD_LEN];
-	char clientKey[64];
-
-	memset( clientKey, 0, 64 );
-	memset( pwd, 0, ENC_PWD_LEN );
-	packet = getToken( buffer, packet );
-
-	if ( packet ) {
-		packet = getToken( buffer, packet ); // get user id
-		if ( packet ) {
-			strncpy( account, buffer, 16 );
-			packet = getToken( buffer, packet ); // get pwd
-			if ( packet ){
-				strncpy( pwd, buffer, 20 );
-				packet = getToken( buffer, packet ); // get client key
-				strncpy( clientKey, buffer, 63 );
-				
-				CAccount accinfo;
-				char result = accinfo.CheckPassword( account, pwd, NULL, 0, false );
-				if ( result == S_ACCOUNT_LOAD_FAIL ) {
-					mysocket->Send("-OCHK\t201\tError\t%s\r\n", clientKey);
-					return;
-				}
-				if ( result == S_INCORRECT_PWD ) {
-					mysocket->Send("-OCHK\t202\tError\t%s\r\n", clientKey);
-					return;
-				}
-				if ( accinfo.block_flag == 0 && accinfo.block_flag2 == 0 )
-					mysocket->Send("+OCHK\t%d\t%s\t%d\r\n", accinfo.login_flag, clientKey,accinfo.uid );
-				else
-					mysocket->Send("+OCHK\t%d\t%s\t%d\r\n", accinfo.login_flag | 0x80000000, clientKey, accinfo.uid );
-				return;
-
-			} else {
-				mysocket->Send("-OCHK\t003\tError\r\n" );
-				return;			
-			}
-		} else {
-			mysocket->Send("-OCHK\t003\tError\r\n" );
-			return;
-		}
-	}
-	
-	mysocket->Send("-OCHK\t004\t\n" );
 	return;
 }
 
 static void CheckPassword(CSocketInt *mysocket, const char *packet)
 {
-	char buffer[INT_SOCKET_BUFFER_LEN];
-	char account[MAX_ACCOUNT_LEN+1];
-	char pwd[MAX_PWD_LEN+1];
-
-	memset(account, 0, MAX_ACCOUNT_LEN+1);
-	memset(pwd, 0, MAX_PWD_LEN+1);
-
-	packet = getToken( buffer, packet ); // skip packet type
-	if (packet) {
-		buffer[0]=0;
-		packet = getToken(buffer, packet);
-		if (packet) {
-			buffer[MAX_ACCOUNT_LEN];
-			strncpy(account, buffer, MAX_ACCOUNT_LEN);
-			account[MAX_ACCOUNT_LEN] = 0;
-			if (CheckAccount(account)){
-				buffer[0]=0;
-				packet = getToken(buffer, packet);
-				if (packet) {
-					buffer[MAX_PWD_LEN]=0;
-					strncpy(pwd, buffer, MAX_PWD_LEN);
-					CAccount accinfo;
-					char result = accinfo.CheckPassword( account, pwd, NULL, 0, false );
-					if ( result == S_ALL_OK ) {
-						mysocket->Send( "%d", INT_SOCKET_ALL_OK );
-					} else {
-						mysocket->Send( "%d", INT_SOCKET_INVALID_PWD );	
-					}
-
-				}else{
-					mysocket->Send( "%d", INT_SOCKET_INCORRECT_PACKET );
-				}
-			} else {
-				mysocket->Send( "%d", INT_SOCKET_INVALID_ACCOUNT );
-			}
-		} else {
-			mysocket->Send( "%d", INT_SOCKET_INCORRECT_PACKET );
-		}
-	} else {
-		mysocket->Send( "%d", INT_SOCKET_INCORRECT_PACKET );
-	}
-
 	return;
 }
 
