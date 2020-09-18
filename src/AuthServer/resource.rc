@@ -102,6 +102,10 @@ BEGIN
     BEGIN
         MENUITEM "日志等级",                        ID_LOGGING_LOGGINGLEVEL
     END
+    POPUP "telnet"
+    BEGIN
+        MENUITEM "show",                        ID_TELNET_SHOW
+    END
 END
 
 
@@ -156,6 +160,14 @@ BEGIN
     CONTROL         "",IDC_LIST_BOSS,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,18,15,186,168
 END
 
+IDD_DIALOG_TELNET DIALOGEX 0, 0, 243, 178
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "后台"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,229,157
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -196,6 +208,14 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 198
     END
+
+    IDD_DIALOG_TELNET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 236
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 171
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -216,6 +236,11 @@ BEGIN
 END
 
 IDD_DIALOG_BOSS AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_DIALOG_TELNET AFX_DIALOG_LAYOUT
 BEGIN
     0
 END

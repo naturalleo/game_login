@@ -36,6 +36,8 @@ public:
 	bool Send(const char* format, ...);
 	const char * IP();
 
+	inline int GetPacketLen() { return packetLen; }
+
 protected:
 	int packetLen;
 

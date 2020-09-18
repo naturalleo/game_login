@@ -22,16 +22,11 @@ VOID CALLBACK WantedSocketTimerRoutine(PVOID lpParam, BYTE TimerOrWaitFired)
 
 	if ( WantedServerReconnect == true ) {
 		SOCKET WantedSock = socket(AF_INET, SOCK_STREAM, 0);
-		// 2. 소켓 Connection에 사용할 Destination Setting을 한다.
+
 		sockaddr_in Destination;
 		Destination.sin_family = AF_INET;
 		Destination.sin_addr   = config.WantedIP;
 		Destination.sin_port   = htons( (u_short)config.WantedPort );
-		// 3. Connection을 맺는다. 
-		
-		// 4. 맺어진 Connection을 이용하여 LOGSocket을 생성한다. 
-		//    Connection Error가 생겼더라도 관계 없다. 
-		//    그렇게 되면 자동적으로 Timer가 작동하여 10초에 한번씩 Reconnection을 시도하게 된다. 
 
 		int ErrorCode = connect( WantedSock, ( sockaddr *)&Destination, sizeof( sockaddr ));
 		
@@ -102,7 +97,7 @@ void CWantedPacketServer::FreeAll()
 		CWantedPacketServer *pPacket;
 		while ((pPacket = pSlot->m_pPacket) != NULL) {
 			pSlot->m_pPacket = reinterpret_cast<CWantedPacketServer *> (pPacket->m_pSocket);
-			delete pPacket;
+			pPacket->ReleaseRef();
 		}
 		pSlot->m_lock.Leave();
 	}
@@ -123,7 +118,7 @@ void CWantedPacketServer::OnIOCallback(BOOL bSuccess, DWORD dwTransferred, LPOVE
 _BEFORE
 	unsigned char *packet = (unsigned char *) m_pBuf->m_buffer + dwTransferred;
 
-	if ((*m_pFunc)(m_pSocket, packet + 1)) {
+	if ((*m_pFunc)(m_pSocket, packet)) {
 		m_pSocket->CIOSocket::CloseSocket();
 	}
 
@@ -137,33 +132,22 @@ _AFTER_FIN
 
 static bool DummyPacket( CWantedSocket *s, const unsigned char *packet )
 {
-	log_1.AddLog( LOG_WARN, "Call DummyPacket What What What" );
-	return false;
-}
-static bool GetVersion( CWantedSocket *s, const unsigned char *packet )
-{
-	int version = GetIntFromPacket( packet );
-	AS_LOG_VERBOSE( "Get Version %d", version );
-	return false;
-}
-static bool GetSendOK( CWantedSocket *s, const unsigned char *packet )
-{
-	int clientnum = GetIntFromPacket( packet );
-	return false;
-}
-static bool GetSendFail( CWantedSocket *s, const unsigned char *packet )
-{
+	static char buf[1024] = {0};
+	memset(buf, 0, sizeof(buf));
+	int size = s->GetPacketLen();
+//#ifdef _DEBUG
+//	DumpPacket((unsigned char *)packet, size);
+//#endif
+
+	strncpy(buf, (const char*)packet, size);
+
 _BEFORE
-	UCHAR FailReason = GetCharFromPacket( packet );
-//	int uid = GetIntFromPacket( packet );
+	log_1.AddLog( LOG_WARN, "Call DummyPacket len: %d What What %s", size, buf);
 _AFTER_FIN
 	return false;
 }
 
 static WantedPacketFunc WantedPacketFuncTable[] = {
-	GetVersion,
-	GetSendOK,
-	GetSendFail,
 	DummyPacket,
 };
 
@@ -234,40 +218,20 @@ void CWantedSocket::OnRead()
 			return;
 		}
 		if (mode == SM_READ_LEN) {
-			if (pi + 3 <= ri) {
-				packetLen = inBuf[pi] + (inBuf[pi + 1] << 8) + 1;
-				if (packetLen <= 0 || packetLen > BUFFER_SIZE) {
-					log_1.AddLog(LOG_ERROR, "%d: bad packet size %d", m_hSocket, packetLen);
-					break;
-				} else {
-					pi += 2;
-					mode = SM_READ_BODY;
-				}
-			} else {
-				Read(ri - pi);
-				return;
-			}
+			mode = SM_READ_BODY;
+			packetLen = ri;
 		} else if (mode == SM_READ_BODY) {
 			if (pi + packetLen <= ri) {
-
-				if (inBuf[pi] >= WA_MAX) {
-					log_1.AddLog(LOG_ERROR, "unknown protocol %d", inBuf[pi]);
-					break;
-				} else {
-					CWantedPacketServer *pPacket = CWantedPacketServer::Alloc();
-					pPacket->m_pSocket = this;
-					pPacket->m_pBuf = m_pReadBuf;
-					pPacket->m_pFunc = (CWantedPacketServer::WantedPacketFunc) packetTable[inBuf[pi]];
-					CIOSocket::AddRef();
-					m_pReadBuf->AddRef();
-					InterlockedIncrement(&CWantedPacketServer::g_nPendingPacket);
-					pPacket->PostObject(pi, g_hIOCompletionPort);
-					pi += packetLen;
-					mode = SM_READ_LEN;
-				}
-			} else {
-				Read(ri - pi);
-				return;
+				CWantedPacketServer *pPacket = CWantedPacketServer::Alloc();
+				pPacket->m_pSocket = this;
+				pPacket->m_pBuf = m_pReadBuf;
+				pPacket->m_pFunc = (CWantedPacketServer::WantedPacketFunc) packetTable[0];
+				CIOSocket::AddRef();
+				m_pReadBuf->AddRef();
+				InterlockedIncrement(&CWantedPacketServer::g_nPendingPacket);
+				pPacket->PostObject(pi, g_hIOCompletionPort);
+				pi += packetLen;
+				mode = SM_READ_LEN;
 			}
 		}
 		else
@@ -289,17 +253,12 @@ bool CWantedSocket::Send(const char* format, ...)
 	char *buffer = pBuffer->m_buffer;
 	va_list ap;
 	va_start(ap, format);
-	int len = Assemble(buffer + 2, BUFFER_SIZE - 2, format, ap);
+	int len = Assemble(buffer, BUFFER_SIZE, format, ap);
 	va_end(ap);
 	if (len == 0) {
 		log_1.AddLog(LOG_ERROR, "%d: assemble too large packet. format %s", m_hSocket, format);
-	} else {
-		len -= 1;
-		len = len;
-		buffer[0] = len;
-		buffer[1] = len >> 8;
 	}
-	pBuffer->m_size = len+3;
+	pBuffer->m_size = len;
 	Write(pBuffer);
 	ReleaseRef();
 	return true;

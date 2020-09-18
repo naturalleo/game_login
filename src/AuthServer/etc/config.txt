@@ -68,16 +68,16 @@ IPInterval = 60
 ; WantedSystem
 
 ; Use WantedSystem or not
-UseWantedSystem = false
+UseWantedSystem = true
 
 ; WantedSystem IP Address
-WantedIP = "10.10.10.234"
+WantedIP = "172.16.15.18"
 
 ; WantedSystem port
-WantedPort = 2122
+WantedPort = 8000
 
 ; Interval between tries to reconnect when connection closed (sec)
-WantedReconnectInterval = 3600
+WantedReconnectInterval = 10
 
 ;---------------------------------------------------------------
 ; NotifySystem

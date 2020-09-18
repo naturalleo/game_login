@@ -17,6 +17,7 @@
 #include "resource.h"
 #include "GmTool.h"
 #include "GameReport.h"
+#include "GameTelnet.h"
 //#include <windows.h>
 
 #define BUTTON_WIDTH	0
@@ -201,6 +202,10 @@ _BEFORE
 				{
 					g_gameReport->GetGameBossInfo();
 				}
+				else if(buttonId == ID_TELNET_SHOW)
+				{
+					g_gameTelnet->ShowComandHelp();
+				}
 				break;
 			}
 		}
@@ -244,6 +249,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	g_tool = new Tool;
 	g_gameReport = new GameReport;
+	g_gameTelnet = new GameTelnet;
 
 	WNDCLASSEX wcx;
 	wcx.cbSize = sizeof(WNDCLASSEX);

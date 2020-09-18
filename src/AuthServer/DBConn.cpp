@@ -57,7 +57,6 @@ void DBEnv::Init(int connCount)
 bool DBEnv::Login(bool reset)
 {
 	CMySQLConenction lpConnection;
-	bool ret = false;
 	SetupSQLConnection(&lpConnection);
 	if(!lpConnection.Connect())
 	{

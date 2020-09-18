@@ -198,6 +198,7 @@
       <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
       <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</BrowseInformation>
     </ClCompile>
+    <ClCompile Include="GameTelnet.cpp" />
     <ClCompile Include="GameReport.cpp" />
     <ClCompile Include="GlobalAuth.cpp">
       <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
@@ -338,6 +339,7 @@
     <ClInclude Include="Des.h" />
     <ClInclude Include="Exception.h" />
     <ClInclude Include="GameReport.h" />
+    <ClInclude Include="GameTelnet.h" />
     <ClInclude Include="GlobalAuth.h" />
     <ClInclude Include="GmTool.h" />
     <ClInclude Include="IOBuffer.h" />
